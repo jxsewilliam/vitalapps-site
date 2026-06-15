@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arrow Flow Support · Vital Apps</title>
+<meta name="description" content="Help and FAQs for Arrow Flow: Escape Puzzle." />
+<meta name="theme-color" content="#FFFFFF" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root { --ink: #0B0C0F; --ink-soft: #62666D; --ink-faint: #9AA0A8; --rule: #EFEFF1; --accent: #4ED1F2; --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body { font-family: var(--font); background: #FFFFFF; color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; }
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: #1FA3C7; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: clamp(32px, 6vh, 64px); }
+  .brand { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; text-decoration: none; color: var(--ink); }
+  .brand svg { width: 22px; height: 22px; }
+  .back { font-size: 13px; font-weight: 500; color: var(--ink-soft); text-decoration: none; }
+  .back:hover { color: var(--ink); }
+  .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow .dot { width: 12px; height: 12px; border-radius: 4px; background: linear-gradient(140deg, #4ED1F2, #FF6BB5); }
+  h1 { font-size: clamp(34px, 4.5vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+  .lead { font-size: 16px; color: var(--ink-soft); margin-bottom: 32px; }
+  .contact-box { background: #F5F5F7; border-radius: 14px; padding: 22px 24px; margin-bottom: 36px; }
+  .contact-box strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .contact-box p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .contact-box a { color: #1FA3C7; }
+  h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; margin-top: 40px; margin-bottom: 16px; }
+  .faq { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { border: 1px solid var(--rule); border-radius: 12px; padding: 18px 22px; background: #FFFFFF; transition: background 0.2s ease; }
+  .faq-item:hover { background: #FAFAFB; }
+  .faq-q { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .faq-a { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+  footer { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <nav class="nav">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg>
+      Vital Apps
+    </a>
+    <a href="/support/" class="back">← All support</a>
+  </nav>
+
+  <p class="eyebrow"><span class="dot"></span> Arrow Flow · Support</p>
+  <h1>Arrow Flow Help</h1>
+  <p class="lead">Stuck on a puzzle, or stuck on the app? Common questions are below. For anything else, get in touch.</p>
+
+  <div class="contact-box">
+    <strong>Direct contact</strong>
+    <p>Email: <a href="mailto:vitalappsltd@gmail.com">vitalappsltd@gmail.com</a> — we respond within 1–2 business days.</p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">How do I play Arrow Flow?</div>
+      <div class="faq-a">Each level is a grid of coloured arrows. Trace a path that follows the arrows, covers every cell on the board exactly once, and ends at the exit. Tap or drag to draw your path. If you go wrong, just drag back to undo.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I'm stuck on a level. What now?</div>
+      <div class="faq-a">Try tracing backwards from the exit instead of forwards from the start — most levels have one tight corner that gives the whole puzzle away. If you'd rather skip ahead, tap the level select screen and choose another level — you don't have to solve them in order.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a hint system?</div>
+      <div class="faq-a">Yes. On any level, tap the lightbulb icon to reveal the next correct move. Hints are free and unlimited — there's no penalty for using them.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Are there ads or subscriptions?</div>
+      <div class="faq-a">No. Arrow Flow is free, with no ads, no subscriptions, and no in-app purchases. We don't run analytics either.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Arrow Flow work offline?</div>
+      <div class="faq-a">Yes. The game runs entirely on your device. You don't need an internet connection to play.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will my progress sync between devices?</div>
+      <div class="faq-a">Progress is stored locally on each device. On iOS, if you have iCloud Backup turned on, your iPhone/iPad backup will include Arrow Flow progress. On Android, your progress is included in your standard Google backup if enabled. Progress doesn't live-sync between devices.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I reset my progress?</div>
+      <div class="faq-a">Open Arrow Flow → Settings → "Reset progress". This wipes your solved levels and best times. You can also uninstall and reinstall the app for a clean slate.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">The app crashed or a level looks wrong. What now?</div>
+      <div class="faq-a">Try fully closing the app and reopening it. If the problem persists, email <a href="mailto:vitalappsltd@gmail.com">vitalappsltd@gmail.com</a> with the level number and a screenshot if possible, and we'll fix it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where can I read your privacy policy?</div>
+      <div class="faq-a">See the <a href="/privacy/arrowflow/">Arrow Flow privacy policy</a>. Short version: we don't collect anything.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 VitalApps Ltd</span>
+    <a href="/support/">All support</a>
+  </footer>
+</main>
+</body>
+</html>

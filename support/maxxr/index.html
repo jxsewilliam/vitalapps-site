@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maxxr Support · Vital Apps</title>
+<meta name="description" content="Help and FAQs for Maxxr, the AI facial analysis app." />
+<meta name="theme-color" content="#FFFFFF" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root { --ink: #0B0C0F; --ink-soft: #62666D; --ink-faint: #9AA0A8; --rule: #EFEFF1; --green-deep: #0F7A4B; --maxxr-accent: #6D28D9; --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body { font-family: var(--font); background: #FFFFFF; color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; }
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--maxxr-accent); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: clamp(32px, 6vh, 64px); }
+  .brand { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; text-decoration: none; color: var(--ink); }
+  .brand svg { width: 22px; height: 22px; }
+  .back { font-size: 13px; font-weight: 500; color: var(--ink-soft); text-decoration: none; }
+  .back:hover { color: var(--ink); }
+  .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow .dot { width: 12px; height: 12px; border-radius: 4px; background: linear-gradient(140deg, #6D28D9, #DB2777); }
+  h1 { font-size: clamp(34px, 4.5vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+  .lead { font-size: 16px; color: var(--ink-soft); margin-bottom: 32px; }
+  .contact-box { background: #F5F5F7; border-radius: 14px; padding: 22px 24px; margin-bottom: 36px; }
+  .contact-box strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .contact-box p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .contact-box a { color: var(--maxxr-accent); }
+  h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; margin-top: 40px; margin-bottom: 16px; }
+  .faq { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { border: 1px solid var(--rule); border-radius: 12px; padding: 18px 22px; background: #FFFFFF; transition: background 0.2s ease; }
+  .faq-item:hover { background: #FAFAFB; }
+  .faq-q { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .faq-a { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+  p { font-size: 15px; color: var(--ink); margin-bottom: 14px; }
+  footer { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <nav class="nav">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg>
+      Vital Apps
+    </a>
+    <a href="/support/" class="back">← All support</a>
+  </nav>
+
+  <p class="eyebrow"><span class="dot"></span> Maxxr · Support</p>
+  <h1>Maxxr Help</h1>
+  <p class="lead">Questions about Maxxr? Common ones are below. For anything else, get in touch.</p>
+
+  <div class="contact-box">
+    <strong>Direct contact</strong>
+    <p>Email: <a href="mailto:vitalappsltd@gmail.com">vitalappsltd@gmail.com</a> — we respond within 1–2 business days.</p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">How do I run a face scan?</div>
+      <div class="faq-a">Open Maxxr → tap Scan → either capture a new photo with the front camera or pick one from your photo library. Make sure your face is well-lit, looking straight at the camera, with no glasses or hat. The AI will return your scores and insights in a few seconds.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">My scan failed or said "no face detected".</div>
+      <div class="faq-a">This usually means the photo was too dark, blurry, angled, or your face was partially covered. Try again with a clear, front-facing photo in even lighting, no sunglasses or hats, and your full face visible. If it keeps failing, check your internet connection — analysis runs over the network.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How is my photo processed?</div>
+      <div class="faq-a">When you submit a scan, your photo is sent securely (HTTPS) to our AI provider (OpenAI's GPT-4o vision via a Cloudflare proxy) for analysis, then the results come back to your phone. Neither provider stores your photo or uses it for training. Maxxr does not keep your photo on our servers — your scans live only on your device. See the <a href="/privacy/maxxr/">Maxxr privacy policy</a> for full details.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I delete a scan?</div>
+      <div class="faq-a">Open Maxxr → go to your scan history → swipe left on any scan and tap Delete. The scan and its photo are removed from your device immediately.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I delete all my scans and data?</div>
+      <div class="faq-a">In Maxxr, go to Profile / Settings → "Reset history" to clear all scans and data. Or, uninstall Maxxr — that removes everything stored on your device. We don't keep your face data on our servers, so there's nothing for us to delete on our end.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">The app says it can't access my camera or photos.</div>
+      <div class="faq-a">Maxxr needs Camera permission to take a scan and Photos permission to import existing pictures. Go to iOS Settings → Maxxr → and turn on Camera and Photos. Then reopen the app.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Maxxr identify me or use facial recognition?</div>
+      <div class="faq-a">No. Maxxr does not perform facial recognition, identity verification, or create biometric templates. It only analyses appearance features (skin, proportions, symmetry) on the photo you submit, returns scores and tips, and discards the image after the analysis.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I use Maxxr without an internet connection?</div>
+      <div class="faq-a">No. The AI analysis runs on a remote model, so an internet connection is required to scan. Your existing scan history can still be viewed offline.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">The app crashed or something went wrong. What now?</div>
+      <div class="faq-a">Try fully closing the app and reopening it. If the problem persists, email us at <a href="mailto:vitalappsltd@gmail.com">vitalappsltd@gmail.com</a> with a quick description (and a screenshot if possible) and we'll look into it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where can I read your privacy policy?</div>
+      <div class="faq-a">See the <a href="/privacy/maxxr/">Maxxr privacy policy</a> for full details on how scans are processed, what's stored, and your rights under UK / EU GDPR.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 VitalApps Ltd</span>
+    <a href="/support/">All support</a>
+  </footer>
+</main>
+</body>
+</html>

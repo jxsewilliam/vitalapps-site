@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Studio · Vital Apps</title>
+<meta name="description" content="A solo SwiftUI and iOS developer based in London, building small thoughtful apps." />
+<meta name="theme-color" content="#FFFFFF" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0B0C0F;
+    --ink-soft: #62666D;
+    --ink-faint: #9AA0A8;
+    --rule: #EFEFF1;
+    --green: #2FB47A;
+    --green-deep: #0F7A4B;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { height: 100%; width: 100%; overflow: hidden; }
+
+  body {
+    font-family: var(--font);
+    background: #FFFFFF;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.005em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .nav {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: clamp(18px, 2.6vh, 26px) clamp(24px, 4vw, 64px);
+    gap: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .brand svg { width: 22px; height: 22px; }
+
+  .nav-links {
+    justify-self: end;
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .nav-links a {
+    padding: 4px 0;
+    transition: color 0.2s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 500; }
+  .nav-links a.active::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  .back {
+    font-size: 13px;
+    color: var(--ink-soft);
+    transition: color 0.2s var(--ease);
+  }
+  .back:hover { color: var(--ink); }
+
+  .stage {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .stage-left {
+    padding: clamp(28px, 5vh, 56px) clamp(24px, 4vw, 56px);
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "§ 01";
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  h1 {
+    font-size: clamp(38px, 5.5vh, 68px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-top: 12px;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--green-deep);
+  }
+
+  .byline {
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-width: 32ch;
+    line-height: 1.5;
+    margin-top: 14px;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .meta > div { display: flex; flex-direction: column; gap: 3px; }
+  .meta .k {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+  .meta .v {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .meta a.v { color: var(--green-deep); }
+  .meta a.v:hover { text-decoration: underline; }
+
+  .stage-right {
+    padding: clamp(28px, 5vh, 56px) clamp(24px, 4vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow-y: auto;
+  }
+
+  .stage-right p {
+    font-size: clamp(15px, 1.9vh, 17px);
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 58ch;
+  }
+  .stage-right p.lead {
+    font-size: clamp(18px, 2.4vh, 22px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .stage-right p em {
+    font-style: italic;
+    color: var(--green-deep);
+  }
+  .stage-right p strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .sig {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  .sig-ink {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .sig-meta {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 820px) {
+    html, body { overflow: auto; height: auto; }
+    .stage { grid-template-columns: 1fr; }
+    .stage-left { border-right: none; border-bottom: 1px solid var(--rule); }
+    .nav-links { display: none; }
+    h1 { font-size: clamp(32px, 8vw, 44px); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.9s var(--ease) forwards;
+  }
+  .fade-up.d1 { animation-delay: 0.1s; }
+  .fade-up.d2 { animation-delay: 0.25s; }
+  .fade-up.d3 { animation-delay: 0.4s; }
+  .fade-up.d4 { animation-delay: 0.55s; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/>
+      <path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/>
+    </svg>
+    Vital Apps
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Apps</a></li>
+    <li><a href="#" class="active">Studio</a></li>
+    <li><a href="mailto:vitalappsltd@gmail.com">Contact</a></li>
+  </ul>
+  <a href="/" class="back">← Back</a>
+</nav>
+
+<section class="stage">
+
+  <div class="stage-left">
+    <div>
+      <div class="eyebrow fade-up">The Studio</div>
+      <h1 class="fade-up d1">One person.<br/>A short list.<br/><em>Made in London.</em></h1>
+      <p class="byline fade-up d2">A small independent studio making apps that do one thing, and do it well.</p>
+    </div>
+
+    <div class="meta fade-up d4">
+      <div>
+        <span class="k">Studio</span>
+        <span class="v">VitalApps Ltd</span>
+      </div>
+      <div>
+        <span class="k">Based in</span>
+        <span class="v">London, UK</span>
+      </div>
+      <div>
+        <span class="k">Founded</span>
+        <span class="v">2025</span>
+      </div>
+      <div>
+        <span class="k">Shipped</span>
+        <span class="v">Apps in production</span>
+      </div>
+      <div style="grid-column: span 2;">
+        <span class="k">Say hello</span>
+        <a class="v" href="mailto:vitalappsltd@gmail.com">vitalappsltd@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-right">
+    <p class="lead fade-up d1">Hey. I'm the person behind Vital Apps. A solo <strong>SwiftUI and iOS developer</strong> from London, shipping apps I actually believe in.</p>
+
+    <p class="fade-up d2">Vital Apps started with <em>Frshly</em>, a small food expiry tracker I built because I was tired of watching good food rot in my own fridge. It turned out a lot of other people felt the same way, and what began as a personal tool quickly became something much bigger.</p>
+
+    <p class="fade-up d2">From there, the studio grew. Vital Apps is no longer just about food waste, it's about building small, thoughtful iOS apps that help people live a little better in different corners of their lives. Tools for everyday problems, built natively in SwiftUI, designed to feel like they belong on your phone.</p>
+
+    <p class="fade-up d3">In 2025 I registered it as <strong>VitalApps Ltd</strong>, a proper UK company. Not to feel important, but so I could build things the right way: pay tax, stand behind what I ship, and make this something that could last.</p>
+
+    <p class="fade-up d3">I care about <strong>small software</strong>. Apps that do one thing cleanly, don't beg for your attention, don't track you, don't hassle you with upsells every three taps. The kind of apps you keep on your home screen for years because they just <em>work</em>.</p>
+
+    <p class="fade-up d3">More apps are in the works, across different areas, all with the same goal: help people, quietly. I'll ship them when they're ready, not before.</p>
+
+    <div class="sig fade-up d4">
+      <span class="sig-ink">Vital Apps</span>
+      <span class="sig-meta">Made in London<br/>Est. 2025</span>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

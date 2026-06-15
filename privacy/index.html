@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy · Vital Apps</title>
+<meta name="description" content="Privacy policies for Vital Apps and our applications." />
+<meta name="theme-color" content="#FFFFFF" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0B0C0F;
+    --ink-soft: #62666D;
+    --ink-faint: #9AA0A8;
+    --rule: #EFEFF1;
+    --green: #2FB47A;
+    --green-deep: #0F7A4B;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    font-family: var(--font);
+    background: #FFFFFF;
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.005em;
+  }
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--green-deep); }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: clamp(32px, 6vh, 64px);
+  }
+  .brand {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 15px; font-weight: 600; letter-spacing: -0.015em;
+    text-decoration: none; color: var(--ink);
+  }
+  .brand svg { width: 22px; height: 22px; }
+  .back {
+    font-size: 13px; font-weight: 500; color: var(--ink-soft);
+    text-decoration: none; transition: color 0.2s ease;
+  }
+  .back:hover { color: var(--ink); }
+  .eyebrow {
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 10px;
+  }
+  h1 {
+    font-size: clamp(38px, 5.5vw, 56px);
+    font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.05; margin-bottom: 14px;
+  }
+  .lead {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 36px;
+    max-width: 56ch;
+  }
+  .policies {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .policy {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    background: #FAFAFB;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.25s var(--ease);
+  }
+  .policy:hover {
+    background: #fff;
+    border-color: #D4D4D8;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px -8px rgba(0,0,0,0.08);
+  }
+  .policy-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  .policy-icon.frshly { background: #0C3A1F; }
+  .policy-icon.dualshot { background: #FFFFFF; border: 1px solid var(--rule); }
+  .policy-icon.maxxr { background: linear-gradient(140deg, #6D28D9 0%, #DB2777 100%); }
+  .policy-icon.arrowflow { background: #0F1117; }
+  .policy-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .policy-name {
+    font-size: 15px; font-weight: 600; color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .policy-desc {
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .policy-arrow {
+    color: var(--ink-faint);
+    font-size: 18px;
+    transition: transform 0.25s var(--ease);
+  }
+  .policy:hover .policy-arrow { transform: translateX(3px); color: var(--ink); }
+
+  h2 {
+    font-size: 20px; font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-top: 36px; margin-bottom: 12px;
+  }
+  p { font-size: 15px; color: var(--ink); margin-bottom: 14px; }
+
+  footer {
+    margin-top: 64px; padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px; color: var(--ink-faint);
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <nav class="nav">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/>
+        <path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/>
+      </svg>
+      Vital Apps
+    </a>
+    <a href="/" class="back">← Back</a>
+  </nav>
+
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy</h1>
+  <p class="lead">VitalApps Ltd makes a small range of apps. Each one collects different data depending on what it does, so each has its own privacy policy. Pick the app below.</p>
+
+  <div class="policies">
+    <a href="/privacy/frshly/" class="policy">
+      <div class="policy-icon frshly"></div>
+      <div class="policy-text">
+        <span class="policy-name">Frshly</span>
+        <span class="policy-desc">Food expiry tracker · Local data only</span>
+      </div>
+      <span class="policy-arrow">›</span>
+    </a>
+    <a href="/privacy/dualshot/" class="policy">
+      <div class="policy-icon dualshot"></div>
+      <div class="policy-text">
+        <span class="policy-name">DualShot</span>
+        <span class="policy-desc">Two-camera capture · Camera & Photo Library access</span>
+      </div>
+      <span class="policy-arrow">›</span>
+    </a>
+    <a href="/privacy/maxxr/" class="policy">
+      <div class="policy-icon maxxr"></div>
+      <div class="policy-text">
+        <span class="policy-name">Maxxr</span>
+        <span class="policy-desc">Looksmaxxing · Camera, Photos, on-device face analysis</span>
+      </div>
+      <span class="policy-arrow">›</span>
+    </a>
+    <a href="/privacy/arrowflow/" class="policy">
+      <div class="policy-icon arrowflow"></div>
+      <div class="policy-text">
+        <span class="policy-name">Arrow Flow</span>
+        <span class="policy-desc">Escape puzzle · No data collected</span>
+      </div>
+      <span class="policy-arrow">›</span>
+    </a>
+  </div>
+
+  <h2>Across all our apps</h2>
+  <p>VitalApps Ltd is a UK-registered company based in London. We do not sell your data, we do not share it with advertisers, and we collect the minimum we need to run each app. Whenever possible, your data stays on your device.</p>
+  <p>If anything is unclear, email us at <a href="mailto:vitalappsltd@gmail.com">vitalappsltd@gmail.com</a>. We read every message.</p>
+
+  <footer>
+    <span>© 2026 VitalApps Ltd</span>
+    <a href="/">Vital Apps</a>
+  </footer>
+</main>
+</body>
+</html>

@@ -455,6 +455,16 @@
     object-fit: cover;
     display: block;
   }
+  .p-relapsr {
+    background: #151515;
+    padding: 0;
+  }
+  .relapsr-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
   .p1 {
     background: linear-gradient(160deg, #FF8C3A 0%, #D63A00 100%);
@@ -1171,6 +1181,13 @@
           </div>
         </div>
 
+        <!-- Card 5: Relapsr -->
+        <div class="card">
+          <div class="card-face p-relapsr">
+            <img src="relapsr-logo.svg" alt="Relapsr" class="relapsr-logo" />
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1224,6 +1241,7 @@
   const DUALSHOT_LOGO = document.querySelector('.dualshot-logo')?.src || '';
   const MAXXR_LOGO = document.querySelector('.maxxr-logo')?.src || '';
   const ARROWFLOW_LOGO = document.querySelector('.arrowflow-logo')?.src || '';
+  const RELAPSR_LOGO = document.querySelector('.relapsr-logo')?.src || '';
 
   const APPS = [
     {
@@ -1292,6 +1310,23 @@
       iconSrc: ARROWFLOW_LOGO,
       iconBg: '#0F1117',
       primary: { label: 'Coming soon', href: '#' },
+      secondary: { label: 'Learn more', href: '#' }
+    },
+    {
+      name: 'Relapsr',
+      category: 'Health & Fitness',
+      tagline: 'Break the habit. Track every clean day.',
+      shortDesc: 'Track your streak and stay on track in recovery.',
+      about: 'Relapsr helps you quit the habit you want to leave behind. Track your streak, understand your triggers with quick check-ins, and rebuild better habits one day at a time. Your recovery data stays private, on your device.',
+      platform: 'iOS · Android',
+      released: '2026',
+      price: 'Free',
+      status: 'live',
+      pageUrl: '/relapsr/',
+      iconType: 'image',
+      iconSrc: RELAPSR_LOGO,
+      iconBg: '#151515',
+      primary: { label: 'Get the app', href: '#' },
       secondary: { label: 'Learn more', href: '#' }
     }
   ];

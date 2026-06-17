@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Relapsr · Vital Apps</title>
+<meta name="description" content="Relapsr — break the habit, track every clean day, and take back control. By VitalApps Ltd." />
+<meta name="theme-color" content="#151515" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0B0C0F;
+    --ink-soft: #62666D;
+    --ink-faint: #9AA0A8;
+    --rule: #EFEFF1;
+    --accent: #04B497;
+    --accent-2: #F7574E;
+    --dark: #151515;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    font-family: var(--font);
+    background: #FFFFFF;
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.005em;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: clamp(40px, 8vh, 80px); }
+  .brand { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; text-decoration: none; color: var(--ink); }
+  .brand svg { width: 22px; height: 22px; }
+  .back { font-size: 13px; font-weight: 500; color: var(--ink-soft); text-decoration: none; }
+  .back:hover { color: var(--ink); }
+
+  .hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: clamp(8px, 2vh, 24px) 0 clamp(48px, 8vh, 80px); }
+  .app-icon {
+    width: 120px; height: 120px; border-radius: 28px;
+    background: var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 18px 50px -18px rgba(0,0,0,0.4);
+  }
+  .app-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 28px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  h1 { font-size: clamp(40px, 6.5vw, 68px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; }
+  .tagline { font-size: clamp(17px, 2.4vw, 21px); color: var(--ink-soft); max-width: 30ch; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; border-radius: 12px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    transition: all 0.2s var(--ease);
+  }
+  .btn-primary { background: var(--dark); color: #fff; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -10px rgba(0,0,0,0.4); }
+  .btn-ghost { background: #F5F5F7; color: var(--ink); }
+  .btn-ghost:hover { background: #ECECEF; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: clamp(24px, 5vh, 56px) 0; }
+  .feature { background: #FAFAFB; border: 1px solid var(--rule); border-radius: 16px; padding: 24px; }
+  .feature .ico { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px; }
+  .feature:nth-child(1) .ico { background: rgba(4,180,151,0.12); }
+  .feature:nth-child(2) .ico { background: rgba(247,87,78,0.12); }
+  .feature:nth-child(3) .ico { background: rgba(244,181,13,0.14); }
+  .feature h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .feature p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+  @media (max-width: 680px) { .features { grid-template-columns: 1fr; } }
+
+  .note { text-align: center; font-size: 14px; color: var(--ink-soft); max-width: 56ch; margin: 0 auto clamp(24px, 5vh, 48px); }
+
+  footer { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer .links a { color: var(--ink-soft); text-decoration: none; margin-left: 18px; }
+  footer .links a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <nav class="nav">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg>
+      Vital Apps
+    </a>
+    <a href="/" class="back">← All apps</a>
+  </nav>
+
+  <section class="hero">
+    <div class="app-icon"><img src="/relapsr-logo.svg" alt="Relapsr icon" /></div>
+    <p class="eyebrow">Health &amp; Fitness · iOS &amp; Android</p>
+    <h1>Relapsr</h1>
+    <p class="tagline">Break the habit. Track every clean day. Take back control.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#">Get the app</a>
+      <a class="btn btn-ghost" href="/support/relapsr/">Support</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <div class="ico">🔥</div>
+      <h3>Track your streak</h3>
+      <p>Watch every clean day add up. A clear, motivating count of how far you've come.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🧠</div>
+      <h3>Know your triggers</h3>
+      <p>Quick check-ins and quizzes help you understand the patterns behind the urge.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🔒</div>
+      <h3>Private by design</h3>
+      <p>Your streaks, journal, and answers stay on your device. We don't sell your data.</p>
+    </div>
+  </section>
+
+  <p class="note">Relapsr is a self-help and tracking tool, not a substitute for medical or professional treatment. If you're in crisis, please reach out to a healthcare provider or your local emergency services.</p>
+
+  <footer>
+    <span>© 2026 VitalApps Ltd</span>
+    <span class="links">
+      <a href="/privacy/relapsr/">Privacy</a>
+      <a href="/support/relapsr/">Support</a>
+      <a href="mailto:vitalappsltd@gmail.com">Contact</a>
+    </span>
+  </footer>
+</main>
+</body>
+</html>

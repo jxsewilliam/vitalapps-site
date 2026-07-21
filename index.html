@@ -465,6 +465,16 @@
     object-fit: contain;
     display: block;
   }
+  .p-swipeclean {
+    background: linear-gradient(140deg, #FD297B 0%, #FF655B 100%);
+    padding: 0;
+  }
+  .swipeclean-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   .p1 {
     background: linear-gradient(160deg, #FF8C3A 0%, #D63A00 100%);
@@ -1188,6 +1198,13 @@
           </div>
         </div>
 
+        <!-- Card 6: SwipeClean -->
+        <div class="card">
+          <div class="card-face p-swipeclean">
+            <img src="swipeclean-logo.png" alt="SwipeClean" class="swipeclean-logo" />
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1242,6 +1259,7 @@
   const MAXXR_LOGO = document.querySelector('.maxxr-logo')?.src || '';
   const ARROWFLOW_LOGO = document.querySelector('.arrowflow-logo')?.src || '';
   const RELAPSR_LOGO = document.querySelector('.relapsr-logo')?.src || '';
+  const SWIPECLEAN_LOGO = document.querySelector('.swipeclean-logo')?.src || '';
 
   const APPS = [
     {
@@ -1326,6 +1344,23 @@
       iconType: 'image',
       iconSrc: RELAPSR_LOGO,
       iconBg: '#151515',
+      primary: { label: 'Get the app', href: '#' },
+      secondary: { label: 'Learn more', href: '#' }
+    },
+    {
+      name: 'SwipeClean',
+      category: 'Photo & Video',
+      tagline: 'Swipe left to delete. Swipe right to keep.',
+      shortDesc: 'Clean up your camera roll one swipe at a time.',
+      about: 'SwipeClean turns cleaning your photo library into something you\'ll actually finish. Swipe left to bin a photo, right to keep it, and watch the gigabytes add up as you go. Clean by month, album or screenshots. Nothing is deleted until you confirm, and nothing ever leaves your phone.',
+      platform: 'iOS',
+      released: '2026',
+      price: 'Free · Pro subscription',
+      status: 'live',
+      pageUrl: '/swipeclean/',
+      iconType: 'image',
+      iconSrc: SWIPECLEAN_LOGO,
+      iconBg: '#FD297B',
       primary: { label: 'Get the app', href: '#' },
       secondary: { label: 'Learn more', href: '#' }
     }

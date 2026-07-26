@@ -455,6 +455,16 @@
     object-fit: cover;
     display: block;
   }
+  .p-rise {
+    background: #F06C84;
+    padding: 0;
+  }
+  .rise-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
   .p-relapsr {
     background: #151515;
     padding: 0;
@@ -1205,6 +1215,13 @@
           </div>
         </div>
 
+        <!-- Card 7: RISE -->
+        <div class="card">
+          <div class="card-face p-rise">
+            <img src="rise-logo.png" alt="RISE" class="rise-logo" />
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1260,6 +1277,7 @@
   const ARROWFLOW_LOGO = document.querySelector('.arrowflow-logo')?.src || '';
   const RELAPSR_LOGO = document.querySelector('.relapsr-logo')?.src || '';
   const SWIPECLEAN_LOGO = document.querySelector('.swipeclean-logo')?.src || '';
+  const RISE_LOGO = document.querySelector('.rise-logo')?.src || '';
 
   const APPS = [
     {
@@ -1361,6 +1379,23 @@
       iconType: 'image',
       iconSrc: SWIPECLEAN_LOGO,
       iconBg: '#FD297B',
+      primary: { label: 'Get the app', href: '#' },
+      secondary: { label: 'Learn more', href: '#' }
+    },
+    {
+      name: 'RISE',
+      category: 'Games',
+      tagline: 'Stack it high. One tap, no second chances.',
+      shortDesc: 'Time each tap and stack the tower as high as you dare.',
+      about: 'RISE is a one-tap stacking game: time each block to land it square, and the tower climbs. Miss and the block shaves down until there is nothing left to land on. Chase a perfect run, build your daily streak, and keep your best score honest with the no-revive leaderboard.',
+      platform: 'iOS · Android',
+      released: '2026',
+      price: 'Free',
+      status: 'coming soon',
+      pageUrl: '/privacy/rise/',
+      iconType: 'image',
+      iconSrc: RISE_LOGO,
+      iconBg: '#F06C84',
       primary: { label: 'Get the app', href: '#' },
       secondary: { label: 'Learn more', href: '#' }
     }

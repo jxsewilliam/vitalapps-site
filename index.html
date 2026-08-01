@@ -404,11 +404,11 @@
   }
 
   /* ---------- POSTER CARDS ---------- */
-  .p-frshly {
-    background: #0C3A1F;
+  .p-countdown {
+    background: #ECEDEE;
     padding: 0;
   }
-  .frshly-logo {
+  .countdown-logo {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -633,7 +633,7 @@
     box-shadow:
       0 1px 2px rgba(0, 0, 0, 0.06),
       0 8px 20px -6px rgba(0, 0, 0, 0.18);
-    background: #0C3A1F;
+    background: #ECEDEE;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -932,10 +932,10 @@
       <div class="fan">
         <div class="fan-shadow"></div>
 
-        <!-- Card 1: Frshly logo -->
+        <!-- Card 1: Countdown -->
         <div class="card">
-          <div class="card-face p-frshly">
-            <img src="assets/frshly-icon.webp" width="720" height="720" alt="Frshly" class="frshly-logo" />
+          <div class="card-face p-countdown">
+            <img src="assets/countdown-icon.webp" width="512" height="512" alt="Countdown" class="countdown-logo" />
           </div>
         </div>
 
@@ -988,9 +988,9 @@
     <div class="dots" id="dots" role="tablist" aria-label="Apps"></div>
 
     <div class="app-info" id="appInfo" aria-live="polite">
-      <h3 class="app-info-name" id="appInfoName">Frshly</h3>
-      <p class="app-info-desc" id="appInfoDesc">Track what's in your fridge, and never waste food again.</p>
-      <a class="app-info-link" id="appInfoLink" href="/frshly/">View app <span class="arr">&rarr;</span></a>
+      <h3 class="app-info-name" id="appInfoName">Countdown</h3>
+      <p class="app-info-desc" id="appInfoDesc">Scan your food, snap the expiry date, get reminded in time.</p>
+      <a class="app-info-link" id="appInfoLink" href="/countdown/">View app <span class="arr">&rarr;</span></a>
     </div>
 
     <div class="legal">
@@ -1013,8 +1013,8 @@
 
   <div class="sheet-icon" id="sheetIcon"></div>
   <p class="sheet-category" id="sheetCategory">Food & Drink</p>
-  <h2 id="sheetName">Frshly</h2>
-  <p class="sheet-tagline" id="sheetTagline">Keep track of what's in your fridge, before it isn't.</p>
+  <h2 id="sheetName">Countdown</h2>
+  <p class="sheet-tagline" id="sheetTagline">Scan it, snap it, and never let food expire again.</p>
 
   <div class="sheet-cta" id="sheetCta">
     <a href="#" class="sheet-btn sheet-btn-primary" id="sheetPrimary">Download</a>
@@ -1023,7 +1023,7 @@
 
   <div class="sheet-section">
     <h3>About</h3>
-    <p id="sheetAbout">Frshly helps you track everything in your fridge and pantry. Add items in seconds, get smart expiry reminders, and finally stop throwing food away.</p>
+    <p id="sheetAbout">Countdown tracks what's in your kitchen so nothing gets forgotten. Scan the barcode, snap the expiry date, and get reminded before food goes off.</p>
   </div>
 
   <div class="sheet-meta">
@@ -1034,7 +1034,7 @@
 </aside>
 
 <script>
-  const FRSHLY_LOGO = document.querySelector('.frshly-logo')?.src || '';
+  const COUNTDOWN_LOGO = document.querySelector('.countdown-logo')?.src || '';
   const DUALSHOT_LOGO = document.querySelector('.dualshot-logo')?.src || '';
   const MAXXR_LOGO = document.querySelector('.maxxr-logo')?.src || '';
   const ARROWFLOW_LOGO = document.querySelector('.arrowflow-logo')?.src || '';
@@ -1044,20 +1044,20 @@
 
   const APPS = [
     {
-      name: 'Frshly',
+      name: 'Countdown',
       category: 'Food & Drink',
-      tagline: 'Keep track of what\'s in your fridge, before it isn\'t.',
-      shortDesc: 'Track what\'s in your fridge and never waste food again.',
-      about: 'Frshly helps you log everything in your fridge and pantry in seconds, sends smart reminders before things expire, and suggests what to eat next. Built for people who hate throwing food away.',
+      tagline: 'Scan it, snap it, and never let food expire again.',
+      shortDesc: 'Scan your food, snap the expiry date, get reminded in time.',
+      about: 'Countdown tracks what\'s in your kitchen so nothing gets forgotten. Scan the barcode, snap the expiry date, and get reminded before food goes off. No typing required — just point your camera and it handles the rest.',
       platform: 'iOS',
       released: '2025',
       price: 'Free',
       status: 'live',
-      pageUrl: '/frshly/',
+      pageUrl: '/countdown/',
       iconType: 'image',
-      iconSrc: FRSHLY_LOGO,
-      iconBg: '#0C3A1F',
-      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/app/frshly-food-expiry-tracker/id6756246350' },
+      iconSrc: COUNTDOWN_LOGO,
+      iconBg: '#ECEDEE',
+      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/gb/app/countdown-food-expiry-tracker/id6756246350' },
       secondary: { label: 'Learn more', href: '#' }
     },
     {

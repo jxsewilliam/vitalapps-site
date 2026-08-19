@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>asset bridge</title></head>
+<body>
+<p id="s">loading…</p>
+<script>
+(async () => {
+  const s = document.getElementById('s');
+  try {
+    const params = new URLSearchParams(location.search);
+    const file = params.get('f') || 'wrong-way-v2.mp4';
+    const resp = await fetch(file, {cache: 'no-store'});
+    const buf = await resp.arrayBuffer();
+    s.textContent = 'fetched ' + buf.byteLength + ' bytes';
+    const target = window.opener || window.parent;
+    if (target && target !== window) {
+      target.postMessage({__assetBridge: true, name: file, type: 'video/mp4', buf: buf}, '*', [buf]);
+      s.textContent += ' — sent';
+    } else {
+      s.textContent += ' — no opener';
+    }
+  } catch (e) {
+    s.textContent = 'ERR ' + e.message;
+  }
+})();
+</script>
+</body>
+</html>

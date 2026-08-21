@@ -95,8 +95,8 @@ img { max-width: 100%; display: block; }
   .hero.hero-split .hero-tagline { max-width: 26em; }
   .hero.hero-split .hero-cta { justify-content: flex-start; }
   .hero.hero-split .hero-meta { justify-content: flex-start; }
-  .hero.hero-split .hero-phones-wrap { margin-top: 0; }
-  .hero.hero-split .hero-phones { width: min(720px, 48vw); }
+  .hero.hero-split .hero-phones-wrap { margin-top: 0; justify-self: center; }
+  .hero.hero-split .hero-phones { width: min(720px, 48vw); max-width: none; }
 }
 .hero-glow { display: none; }
 .hero-icon-wrap::before {

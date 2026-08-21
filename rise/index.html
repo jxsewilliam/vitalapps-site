@@ -3,301 +3,82 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RISE: Stack the Blocks · Vital Apps</title>
-<meta name="description" content="RISE — a one-tap stacking game. Time each tap, land the block square, and build the tower as high as you dare. Free on iOS and Android." />
-<meta name="theme-color" content="#12131A" />
-
+<title>RISE · One-Tap Stacking Game</title>
+<meta name="description" content="RISE is a one-tap stacking game. Time each block, keep the tower wide, and chase your best score." />
+<meta name="theme-color" content="#0B0B0D" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 20 L12 4 L16 12 L12 20 Z' fill='%232FB47A'/%3E%3Cpath d='M12 20 L16 12 L20 20 Z' fill='%230F7A4B'/%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="RISE · One-Tap Stacking Game" />
+<meta property="og:description" content="RISE is a one-tap stacking game. Time each block, keep the tower wide, and chase your best score." />
+<meta property="og:url" content="https://vitalapps.co.uk/rise/" />
+<meta property="og:image" content="https://vitalapps.co.uk/assets/rise-icon.webp" />
+<meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --ink: #0B0C0F;
-    --ink-soft: #62666D;
-    --ink-faint: #9AA0A8;
-    --rule: #EFEFF1;
-    --bg: #12131A;
-    --accent-pink: #F06C84;
-    --accent-gold: #E8B948;
-    --accent-mint: #58D6B0;
-    --accent-sky: #6BB8F0;
-    --accent-purple: #A98BF5;
-    --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { min-height: 100%; }
-  body {
-    font-family: var(--font);
-    background: #FFFFFF;
-    color: var(--ink);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.005em;
-  }
-  a { color: inherit; text-decoration: none; }
-
-  /* Top nav */
-  .topnav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: saturate(140%) blur(14px);
-    -webkit-backdrop-filter: saturate(140%) blur(14px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .topnav-inner {
-    max-width: 1180px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px clamp(20px, 4vw, 32px);
-  }
-  .brand { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
-  .brand svg { width: 22px; height: 22px; }
-  .topnav ul { display: flex; gap: 26px; list-style: none; }
-  .topnav ul a { font-size: 13.5px; color: var(--ink-soft); transition: color 0.2s ease; }
-  .topnav ul a:hover { color: var(--ink); }
-  .all-apps { font-size: 13px; font-weight: 500; color: var(--ink-soft); }
-  .all-apps:hover { color: var(--ink); }
-
-  /* Hero */
-  .hero {
-    background: var(--bg);
-    color: #FFFFFF;
-    padding: clamp(64px, 10vh, 112px) clamp(20px, 5vw, 64px) clamp(64px, 9vh, 100px);
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(40% 50% at 22% 28%, rgba(240,108,132,0.20), transparent 70%),
-      radial-gradient(35% 45% at 80% 62%, rgba(232,185,72,0.16), transparent 70%),
-      radial-gradient(45% 50% at 50% 112%, rgba(88,214,176,0.16), transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
-  .hero-icon {
-    width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 26px;
-    background: #F06C84; overflow: hidden;
-    box-shadow: 0 20px 50px -18px rgba(240,108,132,0.55);
-  }
-  .hero-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: rgba(255,255,255,0.7);
-    margin-bottom: 22px;
-  }
-  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-gold); box-shadow: 0 0 12px var(--accent-gold); }
-  h1 {
-    font-size: clamp(40px, 6.5vw, 72px); font-weight: 700;
-    letter-spacing: -0.035em; line-height: 1.02;
-    margin-bottom: 18px;
-  }
-  h1 .grad {
-    background: linear-gradient(90deg, var(--accent-gold), var(--accent-pink) 55%, var(--accent-purple));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .hero-sub {
-    font-size: clamp(16px, 1.6vw, 18px); color: rgba(255,255,255,0.72);
-    max-width: 52ch; margin: 0 auto 28px; line-height: 1.55;
-  }
-  .cta {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 26px; border-radius: 999px;
-    background: #FFFFFF; color: #12131A;
-    font-size: 14.5px; font-weight: 600;
-    transition: transform 0.25s var(--ease), background 0.25s ease;
-  }
-  .cta:hover { transform: translateY(-2px); }
-  .cta-meta { display: block; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 14px; }
-
-  /* Section */
-  section { padding: clamp(64px, 9vh, 112px) clamp(20px, 5vw, 64px); }
-  .wrap { max-width: 1080px; margin: 0 auto; }
-  .section-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
-  h2 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; max-width: 22ch; }
-  .lead { font-size: 17px; color: var(--ink-soft); line-height: 1.6; max-width: 56ch; margin-bottom: 48px; }
-
-  .features {
-    display: grid; gap: 14px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-  .feature {
-    padding: 26px 22px; border: 1px solid var(--rule); border-radius: 16px;
-    background: #FAFAFB; transition: all 0.25s var(--ease);
-  }
-  .feature:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 14px 30px -16px rgba(0,0,0,0.08); border-color: #D4D4D8; }
-  .feature .icon { width: 32px; height: 32px; border-radius: 9px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
-  .feature .icon.pink { background: rgba(240,108,132,0.16); color: #D2455F; }
-  .feature .icon.gold { background: rgba(232,185,72,0.20); color: #B58800; }
-  .feature .icon.mint { background: rgba(88,214,176,0.18); color: #1B9E7B; }
-  .feature .icon.sky { background: rgba(107,184,240,0.18); color: #2A7FC0; }
-  .feature .icon.purple { background: rgba(169,139,245,0.18); color: #7C3AED; }
-  .feature .icon.orange { background: rgba(255,140,58,0.18); color: #D26720; }
-  .feature h3 { font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
-  .feature p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
-
-  /* Steps */
-  .steps-section { background: #FAFAFB; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-  .steps { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-  .step .num { font-size: 13px; font-weight: 600; color: var(--ink-faint); margin-bottom: 14px; letter-spacing: 0.05em; }
-  .step h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 8px; }
-  .step p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
-
-  /* Final CTA */
-  .final-cta { background: var(--bg); color: #fff; text-align: center; position: relative; overflow: hidden; }
-  .final-cta::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(40% 60% at 30% 50%, rgba(240,108,132,0.18), transparent 70%),
-      radial-gradient(40% 60% at 70% 50%, rgba(232,185,72,0.14), transparent 70%);
-    pointer-events: none;
-  }
-  .final-cta-inner { position: relative; max-width: 720px; margin: 0 auto; }
-  .final-cta h2 { color: #fff; margin: 0 auto 16px; }
-  .final-cta .grad { background: linear-gradient(90deg, var(--accent-gold), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .final-cta p { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 50ch; margin: 0 auto 28px; line-height: 1.55; }
-  .final-cta .cta { background: linear-gradient(90deg, var(--accent-gold), var(--accent-pink)); color: #12131A; }
-
-  /* Footer */
-  footer {
-    background: #FFFFFF;
-    padding: 32px clamp(20px, 5vw, 64px);
-    border-top: 1px solid var(--rule);
-    font-size: 13px; color: var(--ink-faint);
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
-    max-width: 1180px; margin: 0 auto;
-  }
-  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
-  footer a { color: var(--ink-soft); transition: color 0.2s ease; }
-  footer a:hover { color: var(--ink); }
-
-  @media (max-width: 640px) {
-    .topnav ul { display: none; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>:root { --accent: #F06C84; --accent-ink: #1F050B; --glow: 240,108,132; --icon-bg: #F06C84; }</style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a href="/" class="brand">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg>
-      Vital Apps
-    </a>
-    <ul>
-      <li><a href="/">Apps</a></li>
-      <li><a href="/studio/">Studio</a></li>
-      <li><a href="mailto:vitalappsltd@gmail.com">Contact</a></li>
-    </ul>
-    <a href="/" class="all-apps">← All apps</a>
+<nav class="nav">
+  <a href="/" class="brand"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg> Vital Apps</a>
+  <div class="nav-right">
+    <a href="/" class="nav-link hide-m">Apps</a>
+    <a href="/studio/" class="nav-link hide-m">Studio</a>
+    <a href="/" class="nav-link">← All apps</a>
+    <span class="nav-cta" aria-disabled="true">Coming soon</span>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="hero-inner">
-    <div class="hero-icon"><img src="/rise-logo.png" alt="RISE app icon" /></div>
-    <p class="eyebrow"><span class="dot"></span> RISE · Coming soon</p>
-    <h1>One tap.<br/><span class="grad">Stack it high.</span></h1>
-    <p class="hero-sub">Blocks slide across the screen. Tap to drop one. Land it square and the tower climbs — miss and it shaves down until there's nothing left to land on. Simple to start, brutal to master.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-      <a href="#" class="cta">App Store</a>
-      <a href="#" class="cta" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);">Google Play</a>
-    </div>
-    <span class="cta-meta">iPhone · Android · Free · Coming soon</span>
+  <div class="hero-glow"></div>
+  <p class="pill rv in"><span class="dot"></span>Coming soon · iOS &amp; Android</p>
+  <h1 class="rv in rv-d1">One tap.<br/><em>Stack it high.</em></h1>
+  <p class="hero-tagline rv in rv-d2">Blocks slide across the screen. Tap to drop one. Land it square and the tower climbs — miss and it shaves down until there's nothing left to land on.</p>
+  <div class="hero-cta rv in rv-d3"><span class="btn btn-accent" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>&nbsp;Coming soon</span><a href="#features" class="btn btn-ghost">Learn more <span class="chev">›</span></a></div>
+  <div class="hero-icon-wrap rv in rv-d3">
+    <div class="hero-icon"><img src="/assets/rise-icon.webp" alt="RISE app icon" width="512" height="512" /></div>
   </div>
+  <div class="hero-meta rv in rv-d4"><div>Platform<strong>iPhone · Android</strong></div><div>Price<strong>Free</strong></div><div>Status<strong>Coming soon</strong></div></div>
 </header>
 
-<section>
-  <div class="wrap">
-    <p class="section-eyebrow">What it is</p>
-    <h2>A tower that only goes up if your timing does.</h2>
-    <p class="lead">RISE is a one-tap stacking game. There's one control and one decision: when to tap. Every block you land perfectly keeps the tower wide. Every block you miss trims it narrower, until a single mistimed tap ends the run. No tutorial needed — you'll understand it in three seconds and still be chasing your best score a month later.</p>
-
-    <div class="features">
-      <div class="feature">
-        <div class="icon pink">◆</div>
-        <h3>One tap, nothing else</h3>
-        <p>No buttons, no joystick, no menus mid-run. Tap to drop, tap to restart. The whole game fits in one thumb.</p>
-      </div>
-      <div class="feature">
-        <div class="icon gold">★</div>
-        <h3>Perfect stacks pay off</h3>
-        <p>Land a block dead centre and nothing gets sliced away. String perfects together and the tower stays full-width — that's how the big scores happen.</p>
-      </div>
-      <div class="feature">
-        <div class="icon mint">♥</div>
-        <h3>Hearts to keep the run alive</h3>
-        <p>Spend a heart to carry on from where you fell instead of starting over. You begin with three, and you can always watch a short ad for one more shot.</p>
-      </div>
-      <div class="feature">
-        <div class="icon sky">▲</div>
-        <h3>An honest leaderboard</h3>
-        <p>Your stats track your best score with revives and your best score without one, separately. The no-revive number is the one that actually counts.</p>
-      </div>
-      <div class="feature">
-        <div class="icon purple">◷</div>
-        <h3>Streaks and stats</h3>
-        <p>Games played, blocks stacked, average score, and a day streak that grows every day you come back. Small numbers that make one more run very easy to justify.</p>
-      </div>
-      <div class="feature">
-        <div class="icon orange">✕</div>
-        <h3>Remove ads for good</h3>
-        <p>One small purchase clears the ads permanently. No subscription, no timers, no energy meter — RISE never stops you from playing.</p>
-      </div>
-    </div>
-  </div>
+<section class="mission">
+  <p data-accent="simple|brutal|best">RISE is simple to start and brutal to master — you'll understand it in three seconds and still be chasing your best score a month later.</p>
 </section>
 
-<section class="steps-section">
-  <div class="wrap">
-    <p class="section-eyebrow">How it works</p>
-    <h2>Three rules. That's the whole game.</h2>
-
-    <div class="steps">
-      <div class="step">
-        <p class="num">01</p>
-        <h3>Tap to drop.</h3>
-        <p>A block swings back and forth above the tower. Tap and it falls exactly where it was.</p>
-      </div>
-      <div class="step">
-        <p class="num">02</p>
-        <h3>Overhang gets cut.</h3>
-        <p>Anything hanging over the edge is sliced off and falls away. The next block is only as wide as what's left.</p>
-      </div>
-      <div class="step">
-        <p class="num">03</p>
-        <h3>Miss and it's over.</h3>
-        <p>Trim the tower down to nothing and the run ends. Spend a heart to continue, or start again and beat it properly.</p>
-      </div>
-    </div>
-  </div>
+<section class="section" id="features">
+  <p class="eyebrow rv">What it is</p>
+  <h2 class="rv rv-d1">A tower that only goes up if your <em>timing</em> does.</h2>
+  <p class="section-lead rv rv-d2">One control, one decision: when to tap.</p>
+  <div class="features"><div class="feat rv rv-d1"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 11V5a1.5 1.5 0 013 0v5m0-3a1.5 1.5 0 013 0v4m0-2a1.5 1.5 0 013 0v5a7 7 0 01-7 7c-3 0-4.5-1.5-6-4l-2-4a1.5 1.5 0 012.5-1.5L7 13V6a1.5 1.5 0 012-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>One tap, nothing else</h3><p>No buttons, no joystick, no menus mid-run. Tap to drop, tap to restart. The whole game fits in one thumb.</p></div>
+<div class="feat rv rv-d2"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><h3>Perfect stacks pay off</h3><p>Land a block dead centre and nothing gets sliced away. String perfects together and the tower stays full-width — that's how the big scores happen.</p></div>
+<div class="feat rv rv-d3"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>Hearts to keep the run alive</h3><p>Spend a heart to carry on from where you fell instead of starting over. You begin with three, and you can always watch a short ad for one more shot.</p></div>
+<div class="feat rv rv-d1"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 4h8v5a4 4 0 01-8 0V4zM8 5H4c0 3 1.5 5 4 5M16 5h4c0 3-1.5 5-4 5M12 13v4m-4 4h8m-6 0v-4h4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>An honest leaderboard</h3><p>Your stats track your best score with revives and your best score without one, separately. The no-revive number is the one that actually counts.</p></div>
+<div class="feat rv rv-d2"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s5 4.5 5 9.5a5 5 0 01-10 0C7 10 9 8 9 8s-.5 2.5 1.5 2.5C12 10.5 12 3 12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>Streaks and stats</h3><p>Games played, blocks stacked, average score, and a day streak that grows every day you come back.</p></div>
+<div class="feat rv rv-d3"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Remove ads for good</h3><p>One small purchase clears the ads permanently. No subscription, no timers, no energy meter — RISE never stops you from playing.</p></div></div>
 </section>
 
-<section class="final-cta">
-  <div class="final-cta-inner">
-    <h2>How high can <span class="grad">you get?</span></h2>
-    <p>RISE launches soon on the App Store and Google Play. Free to download, no subscriptions, no nonsense.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-      <a href="#" class="cta">App Store</a>
-      <a href="#" class="cta" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);background-clip:initial;-webkit-background-clip:initial;">Google Play</a>
-    </div>
-  </div>
+<section class="steps-band"><div class="section"><p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">Three rules. That's the whole game.</h2><div class="steps-grid"><div class="step rv rv-d1"><p class="step-num">01</p><h3>Tap to drop.</h3><p>A block swings back and forth above the tower. Tap and it falls exactly where it was.</p></div>
+<div class="step rv rv-d2"><p class="step-num">02</p><h3>Overhang gets cut.</h3><p>Anything hanging over the edge is sliced off and falls away. The next block is only as wide as what's left.</p></div>
+<div class="step rv rv-d3"><p class="step-num">03</p><h3>Miss and it’s over.</h3><p>Trim the tower down to nothing and the run ends. Spend a heart to continue, or start again and beat it properly.</p></div></div></div></section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="mq-pill"><span class="dot"></span>One-tap gameplay</span><span class="mq-pill"><span class="dot"></span>Perfect stack bonus</span><span class="mq-pill"><span class="dot"></span>No-revive leaderboard</span><span class="mq-pill"><span class="dot"></span>Day streaks</span><span class="mq-pill"><span class="dot"></span>Free to play</span><span class="mq-pill"><span class="dot"></span>No energy meter</span><span class="mq-pill"><span class="dot"></span>One-tap gameplay</span><span class="mq-pill"><span class="dot"></span>Perfect stack bonus</span><span class="mq-pill"><span class="dot"></span>No-revive leaderboard</span><span class="mq-pill"><span class="dot"></span>Day streaks</span><span class="mq-pill"><span class="dot"></span>Free to play</span><span class="mq-pill"><span class="dot"></span>No energy meter</span></div></div>
+
+<section class="cta-final">
+  <div class="cta-glow"></div>
+  <h2 class="rv">How high can <em>you</em> get?</h2>
+  <p class="rv rv-d1">RISE launches soon on the App Store and Google Play. Free to download, no subscriptions, no nonsense.</p>
+  <div class="hero-cta rv rv-d2"><span class="btn btn-accent" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>&nbsp;Coming soon</span></div>
 </section>
+
+
 
 <footer>
   <span>© 2026 VitalApps Ltd</span>
-  <div class="foot-links">
-    <a href="/privacy/rise/">Privacy</a>
-    <a href="/terms/rise/">Terms</a>
-    <a href="/support/rise/">Support</a>
-    <a href="/studio/">Studio</a>
-    <a href="mailto:vitalappsltd@gmail.com">Contact</a>
-  </div>
+  <div class="foot-links"><a href="/privacy/rise/">Privacy</a><a href="/terms/rise/">Terms</a><a href="/support/rise/">Support</a><a href="/studio/">Studio</a><a href="mailto:vitalappsltd@gmail.com">Contact</a></div>
 </footer>
 
+<script src="/assets/app.js"></script>
 </body>
 </html>

@@ -3,134 +3,77 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SwipeClean · Vital Apps</title>
-<meta name="description" content="SwipeClean — swipe left to delete, right to keep. Clean up your camera roll and free up space in minutes. By VitalApps Ltd." />
-<meta name="theme-color" content="#FD297B" />
-
+<title>SwipeClean · Photo Cleaner</title>
+<meta name="description" content="Swipe left to delete, right to keep. Clean your camera roll in minutes." />
+<meta name="theme-color" content="#0B0B0D" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 20 L12 4 L16 12 L12 20 Z' fill='%232FB47A'/%3E%3Cpath d='M12 20 L16 12 L20 20 Z' fill='%230F7A4B'/%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SwipeClean · Photo Cleaner" />
+<meta property="og:description" content="Swipe left to delete, right to keep. Clean your camera roll in minutes." />
+<meta property="og:url" content="https://vitalapps.co.uk/swipeclean/" />
+<meta property="og:image" content="https://vitalapps.co.uk/assets/swipeclean-icon.webp" />
+<meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --ink: #0B0C0F;
-    --ink-soft: #62666D;
-    --ink-faint: #9AA0A8;
-    --rule: #EFEFF1;
-    --accent: #FD297B;
-    --accent-2: #19CC8C;
-    --dark: #FD297B;
-    --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { min-height: 100%; }
-  body {
-    font-family: var(--font);
-    background: #FFFFFF;
-    color: var(--ink);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.005em;
-  }
-  a { color: inherit; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px); }
-  .nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: clamp(40px, 8vh, 80px); }
-  .brand { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; text-decoration: none; color: var(--ink); }
-  .brand svg { width: 22px; height: 22px; }
-  .back { font-size: 13px; font-weight: 500; color: var(--ink-soft); text-decoration: none; }
-  .back:hover { color: var(--ink); }
-
-  .hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: clamp(8px, 2vh, 24px) 0 clamp(48px, 8vh, 80px); }
-  .app-icon {
-    width: 120px; height: 120px; border-radius: 28px;
-    background: linear-gradient(140deg, #FD297B 0%, #FF655B 100%);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 18px 50px -18px rgba(253,41,123,0.5);
-  }
-  .app-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 28px; }
-  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
-  h1 { font-size: clamp(40px, 6.5vw, 68px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; }
-  .tagline { font-size: clamp(17px, 2.4vw, 21px); color: var(--ink-soft); max-width: 30ch; }
-  .cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 13px 24px; border-radius: 12px;
-    font-size: 15px; font-weight: 600; text-decoration: none;
-    transition: all 0.2s var(--ease);
-  }
-  .btn-primary { background: var(--dark); color: #fff; }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -10px rgba(253,41,123,0.6); }
-  .btn-ghost { background: #F5F5F7; color: var(--ink); }
-  .btn-ghost:hover { background: #ECECEF; }
-
-  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: clamp(24px, 5vh, 56px) 0; }
-  .feature { background: #FAFAFB; border: 1px solid var(--rule); border-radius: 16px; padding: 24px; }
-  .feature .ico { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px; }
-  .feature:nth-child(1) .ico { background: rgba(253,41,123,0.12); }
-  .feature:nth-child(2) .ico { background: rgba(25,204,140,0.14); }
-  .feature:nth-child(3) .ico { background: rgba(245,183,72,0.16); }
-  .feature h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
-  .feature p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
-  @media (max-width: 680px) { .features { grid-template-columns: 1fr; } }
-
-  .note { text-align: center; font-size: 14px; color: var(--ink-soft); max-width: 56ch; margin: 0 auto clamp(24px, 5vh, 48px); }
-
-  footer { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  footer .links a { color: var(--ink-soft); text-decoration: none; margin-left: 18px; }
-  footer .links a:hover { color: var(--ink); }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>:root { --accent: #FD297B; --accent-ink: #20030E; --glow: 253,41,123; --icon-bg: #FD297B; }</style>
 </head>
 <body>
-<main class="wrap">
-  <nav class="nav">
-    <a href="/" class="brand">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg>
-      Vital Apps
-    </a>
-    <a href="/" class="back">← All apps</a>
-  </nav>
 
-  <section class="hero">
-    <div class="app-icon"><img src="/swipeclean-logo.png" alt="SwipeClean icon" /></div>
-    <p class="eyebrow">Photo &amp; Video · iOS</p>
-    <h1>SwipeClean</h1>
-    <p class="tagline">Swipe left to delete, right to keep. Clean your camera roll in minutes.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="https://apps.apple.com/gb/app/swipeclean-photo-cleaner/id6793184550">Get the app</a>
-      <a class="btn btn-ghost" href="/support/swipeclean/">Support</a>
-    </div>
-  </section>
+<nav class="nav">
+  <a href="/" class="brand"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg> Vital Apps</a>
+  <div class="nav-right">
+    <a href="/" class="nav-link hide-m">Apps</a>
+    <a href="/studio/" class="nav-link hide-m">Studio</a>
+    <a href="/" class="nav-link">← All apps</a>
+    <a href="https://apps.apple.com/gb/app/swipeclean-photo-cleaner/id6793184550" class="nav-cta" target="_blank" rel="noopener">Download</a>
+  </div>
+</nav>
 
-  <section class="features">
-    <div class="feature">
-      <div class="ico">👆</div>
-      <h3>Swipe to clean</h3>
-      <p>One photo at a time, one decision at a time. Left to bin it, right to keep it — no endless scrolling.</p>
-    </div>
-    <div class="feature">
-      <div class="ico">💾</div>
-      <h3>See the space you free</h3>
-      <p>Watch the gigabytes add up as you go. Clean by month, album, screenshots, or your whole library.</p>
-    </div>
-    <div class="feature">
-      <div class="ico">🔒</div>
-      <h3>Nothing leaves your phone</h3>
-      <p>SwipeClean never uploads your photos. Deletions go to Recently Deleted for 30 days, so nothing is lost instantly.</p>
-    </div>
-  </section>
+<header class="hero">
+  <div class="hero-glow"></div>
+  <p class="pill rv in"><span class="dot"></span>Live on the App Store · iOS</p>
+  <h1 class="rv in rv-d1">Swipe left to delete.<br/><em>Right to keep.</em></h1>
+  <p class="hero-tagline rv in rv-d2">Clean your camera roll in minutes — one photo, one decision at a time.</p>
+  <div class="hero-cta rv in rv-d3"><a href="https://apps.apple.com/gb/app/swipeclean-photo-cleaner/id6793184550" class="btn btn-accent" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>&nbsp;Download on App Store <span class="chev">›</span></a><a href="#features" class="btn btn-ghost">Learn more <span class="chev">›</span></a></div>
+  <div class="hero-icon-wrap rv in rv-d3">
+    <div class="hero-icon"><img src="/assets/swipeclean-icon.webp" alt="SwipeClean app icon" width="512" height="512" /></div>
+  </div>
+  <div class="hero-meta rv in rv-d4"><div>Platform<strong>iOS</strong></div><div>Released<strong>2026</strong></div><div>Price<strong>Free · Pro</strong></div></div>
+</header>
 
-  <p class="note">SwipeClean is free to try. SwipeClean Pro unlocks unlimited swiping. Deleted items are moved to your Photos app's Recently Deleted album and stay recoverable for 30 days.</p>
+<section class="mission">
+  <p data-accent="finish|gigabytes">SwipeClean turns cleaning your photo library into something you'll actually finish — and you watch the gigabytes add up as you go.</p>
+</section>
 
-  <footer>
-    <span>© 2026 VitalApps Ltd</span>
-    <span class="links">
-      <a href="/privacy/swipeclean/">Privacy</a>
-      <a href="/support/swipeclean/">Support</a>
-      <a href="mailto:vitalappsltd@gmail.com">Contact</a>
-    </span>
-  </footer>
-</main>
+<section class="section" id="features">
+  <p class="eyebrow rv">Why SwipeClean</p>
+  <h2 class="rv rv-d1">Cleaning that actually gets <em>finished.</em></h2>
+  <p class="section-lead rv rv-d2">No endless scrolling, no risky deletes, no uploads.</p>
+  <div class="features"><div class="feat rv rv-d1"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Swipe to clean</h3><p>One photo at a time, one decision at a time. Left to bin it, right to keep it — no endless scrolling.</p></div>
+<div class="feat rv rv-d2"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 109 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 7a5 5 0 105 5h-5V7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>See the space you free</h3><p>Watch the gigabytes add up as you go. Clean by month, album, screenshots, or your whole library.</p></div>
+<div class="feat rv rv-d3"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 118 0v3" stroke="currentColor" stroke-width="2"/></svg></div><h3>Nothing leaves your phone</h3><p>SwipeClean never uploads your photos. Deletions go to Recently Deleted for 30 days, so nothing is lost instantly.</p></div></div>
+</section>
+
+
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="mq-pill"><span class="dot"></span>Swipe left to delete</span><span class="mq-pill"><span class="dot"></span>Swipe right to keep</span><span class="mq-pill"><span class="dot"></span>Clean by month</span><span class="mq-pill"><span class="dot"></span>Clean by album</span><span class="mq-pill"><span class="dot"></span>Free up gigabytes</span><span class="mq-pill"><span class="dot"></span>Nothing uploaded</span><span class="mq-pill"><span class="dot"></span>30-day safety net</span><span class="mq-pill"><span class="dot"></span>Swipe left to delete</span><span class="mq-pill"><span class="dot"></span>Swipe right to keep</span><span class="mq-pill"><span class="dot"></span>Clean by month</span><span class="mq-pill"><span class="dot"></span>Clean by album</span><span class="mq-pill"><span class="dot"></span>Free up gigabytes</span><span class="mq-pill"><span class="dot"></span>Nothing uploaded</span><span class="mq-pill"><span class="dot"></span>30-day safety net</span></div></div>
+
+<section class="cta-final">
+  <div class="cta-glow"></div>
+  <h2 class="rv">Your camera roll, <em>finally sorted.</em></h2>
+  <p class="rv rv-d1">SwipeClean is free to try. SwipeClean Pro unlocks unlimited swiping.</p>
+  <div class="hero-cta rv rv-d2"><a href="https://apps.apple.com/gb/app/swipeclean-photo-cleaner/id6793184550" class="btn btn-accent" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>&nbsp;Download on App Store <span class="chev">›</span></a></div>
+</section>
+
+<p class="note">Deleted items are moved to your Photos app's Recently Deleted album and stay recoverable for 30 days.</p>
+
+<footer>
+  <span>© 2026 VitalApps Ltd</span>
+  <div class="foot-links"><a href="/privacy/swipeclean/">Privacy</a><a href="/support/swipeclean/">Support</a><a href="/studio/">Studio</a><a href="mailto:vitalappsltd@gmail.com">Contact</a></div>
+</footer>
+
+<script src="/assets/app.js"></script>
 </body>
 </html>

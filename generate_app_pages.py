@@ -40,18 +40,18 @@ def feat(icon, title, body):
     return {'icon': icon, 'title': title, 'body': body}
 
 APPS = {
- 'countdown': dict(
-   name='Countdown', title='Countdown · Food Expiry Tracker',
-   desc="Countdown tracks what's in your kitchen. Scan the barcode, snap the expiry date, and get reminded before food goes off.",
-   accent='#2FB47A', accent_ink='#04170D', glow='47,180,122', icon='/assets/countdown-icon.png', icon_bg='#ECEDEE',
+ 'useby': dict(
+   name='UseBy', title='UseBy · Food Expiry Tracker',
+   desc="UseBy tracks what's in your kitchen. Scan the barcode, snap the expiry date, and get reminded before food goes off.",
+   accent='#2FB47A', accent_ink='#04170D', glow='47,180,122', icon='/assets/useby-icon.webp', icon_bg='#61686F',
    pill='Live on the App Store · iOS',
    h1='Never waste<br/>food <em>again.</em>',
-   tagline="Countdown tracks what's in your kitchen so nothing gets forgotten. Point your camera and it handles the rest — no typing required.",
-   store='https://apps.apple.com/gb/app/countdown-food-expiry-tracker/id6756246350',
-   meta=[('Platform','iOS · iPadOS'),('Released','2025'),('Price','Free')],
-   mission="No spreadsheets, no typing, no overcomplicated meal plans — just scan the barcode, snap the expiry date, and Countdown remembers everything for you.",
+   tagline="UseBy tracks what's in your kitchen so nothing gets forgotten. Point your camera and it handles the rest — no typing required.",
+   store='https://apps.apple.com/gb/app/useby-food-expiry-tracker/id6756246350',
+   meta=[('Platform','iOS · iPadOS'),('Released','2025'),('Price','£9.99 · pay once')],
+   mission="No spreadsheets, no typing, no overcomplicated meal plans — just scan the barcode, snap the expiry date, and UseBy remembers everything for you.",
    mission_accent='scan|snap|remembers',
-   feat_eyebrow='Why Countdown', feat_h2='Built around the way you <em>actually</em> use your fridge.',
+   feat_eyebrow='Why UseBy', feat_h2='Built around the way you <em>actually</em> use your fridge.',
    feat_lead="A calm app that helps you remember what you have and use it before it goes off.",
    features=[
      feat('scan','Scan, don’t type',"Point your camera at the barcode and it's saved. No friction, no fluff."),
@@ -63,12 +63,12 @@ APPS = {
    ],
    steps_h2="Three taps and you're done.",
    steps=[('Scan the barcode.',"Point your camera at any product and it's saved to your inventory. About three seconds."),
-          ('Snap the expiry date.',"Photograph the date on the label and Countdown reads it. It nudges you before food turns — not after it's in the bin."),
+          ('Snap the expiry date.',"Photograph the date on the label and UseBy reads it. It nudges you before food turns — not after it's in the bin."),
           ('Eat it. Don’t bin it.',"Open the app, see what needs eating first, and actually eat it. That's the whole loop.")],
-   marquee=['Scan barcodes','Snap expiry dates','Smart reminders','Zero typing','Private by design','No ads ever','Free on iOS'],
+   marquee=['Scan barcodes','Snap expiry dates','Smart reminders','Zero typing','Private by design','No ads ever','Pay once, keep forever'],
    cta_h2='Stop throwing food <em>away.</em>',
-   cta_p="Countdown is free and takes seconds to use. Built for people who just want their fridge to stop being a graveyard.",
-   foot=[('/privacy/countdown/','Privacy'),('/support/countdown/','Support'),('/studio/','Studio'),('mailto:vitalappsltd@gmail.com','Contact')],
+   cta_p="UseBy is £9.99, once — no subscriptions, no ads. Built for people who just want their fridge to stop being a graveyard.",
+   foot=[('/privacy/useby/','Privacy'),('/support/useby/','Support'),('/studio/','Studio'),('mailto:vitalappsltd@gmail.com','Contact')],
  ),
  'dualshot': dict(
    name='DualShot', title='DualShot · One Tap, Two Videos',

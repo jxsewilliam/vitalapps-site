@@ -337,7 +337,9 @@ def render(slug, a):
 </header>
 
 <section class="mission">
-  <p data-accent="{a['mission_accent']}">{H.escape(a['mission'], quote=False)}</p>
+  <div class="mission-sticky">
+    <p data-accent="{a['mission_accent']}">{H.escape(a['mission'], quote=False)}</p>
+  </div>
 </section>
 
 <section class="section" id="features">

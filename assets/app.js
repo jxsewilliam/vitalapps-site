@@ -40,14 +40,14 @@
       spans.forEach(function (s) { s.classList.add('lit'); });
     } else {
       var ticking = false;
+      var section = mission.closest('.mission') || mission;
       var update = function () {
         ticking = false;
-        var rect = mission.getBoundingClientRect();
+        var rect = section.getBoundingClientRect();
         var vh = window.innerHeight;
-        /* progress: 0 when the paragraph enters the lower third, 1 when its bottom passes the upper third */
-        var start = vh * 0.82;
-        var end = vh * 0.30;
-        var progress = (start - rect.top) / (start - end + rect.height);
+        /* progress across the tall sticky region: 0 as it pins, 1 before it releases */
+        var total = rect.height - vh;
+        var progress = total > 0 ? (-rect.top + vh * 0.25) / total : 1;
         progress = Math.max(0, Math.min(1, progress));
         var litCount = Math.round(progress * spans.length);
         spans.forEach(function (s, i) { s.classList.toggle('lit', i < litCount); });

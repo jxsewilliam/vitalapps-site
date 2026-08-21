@@ -248,9 +248,9 @@ FAVICON = "data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.or
 def store_buttons(a, ghost_href='#features'):
     if a.get('coming'):
         return ('<span class="btn btn-accent" aria-disabled="true">%s&nbsp;Coming soon</span>'
-                '<a href="#features" class="btn btn-ghost">Learn more <span class="chev">›</span></a>') % APPLE
+                '<a href="#features" class="link-quiet">Learn more <span class="chev">›</span></a>') % APPLE
     return ('<a href="%s" class="btn btn-accent" target="_blank" rel="noopener">%s&nbsp;Download on App Store <span class="chev">›</span></a>'
-            '<a href="%s" class="btn btn-ghost">Learn more <span class="chev">›</span></a>') % (a['store'], APPLE, ghost_href)
+            '<a href="%s" class="link-quiet">Learn more <span class="chev">›</span></a>') % (a['store'], APPLE, ghost_href)
 
 def cta_button(a):
     if a.get('coming'):
@@ -259,8 +259,9 @@ def cta_button(a):
 
 def render(slug, a):
     feats = '\n'.join(
-        '<div class="feat rv rv-d%d"><div class="feat-icon">%s</div><h3>%s</h3><p>%s</p></div>'
-        % ((i % 3) + 1, I[f['icon']], H.escape(f['title'], quote=False), H.escape(f['body'], quote=False))
+        '<div class="feat%s rv rv-d%d"><h3>%s</h3><p>%s</p></div>'
+        % (' feat-anchor' if i == 0 else '', (i % 3) + 1,
+           H.escape(f['title'], quote=False), H.escape(f['body'], quote=False))
         for i, f in enumerate(a['features']))
 
     steps_html = ''

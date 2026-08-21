@@ -345,71 +345,6 @@ img { max-width: 100%; display: block; }
 .step h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
 .step p { font-size: 14.5px; color: var(--text-soft); line-height: 1.6; }
 
-/* ---------- DEEP-DIVE ROWS ---------- */
-.rows { display: flex; flex-direction: column; gap: clamp(56px, 10vh, 120px); margin-top: clamp(40px, 7vh, 72px); }
-.row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  gap: clamp(28px, 5vw, 72px);
-  align-items: center;
-}
-.row.flip { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
-.row.flip .row-shot { order: 2; }
-.row-shot { position: relative; display: flex; justify-content: center; }
-.row-shot::before {
-  content: "";
-  position: absolute; inset: -6% -12%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(var(--glow), 0.22) 0%, transparent 65%);
-  filter: blur(28px);
-  pointer-events: none;
-}
-.row-shot img {
-  position: relative;
-  width: min(300px, 70vw);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 30px 70px -24px rgba(0, 0, 0, 0.8);
-}
-.row-copy .step-num { margin-bottom: 10px; }
-.row-copy h3 { font-size: clamp(24px, 2.6vw, 34px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 12px; }
-.row-copy p { font-size: clamp(15px, 1.6vw, 17px); color: var(--text-soft); line-height: 1.6; max-width: 46ch; }
-
-/* ---------- BENEFITS PANEL ---------- */
-.benefits { max-width: 1080px; margin: 0 auto; padding: clamp(48px, 8vh, 96px) clamp(20px, 5vw, 48px); }
-.benefits-panel {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
-  background: linear-gradient(135deg, rgba(var(--glow), 0.10) 0%, var(--card) 60%);
-  border: 1px solid rgba(var(--glow), 0.22);
-  border-radius: 28px;
-  padding: clamp(28px, 5vw, 64px);
-}
-.benefits-copy h2 { font-size: clamp(28px, 3.4vw, 42px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.14; }
-.benefits-copy h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.05em; color: var(--accent); }
-.benefits-copy p { margin-top: 14px; font-size: clamp(15px, 1.6vw, 17px); color: var(--text-soft); max-width: 40ch; }
-.benefits-copy .hero-cta { justify-content: flex-start; margin-top: 26px; }
-.bene-viewport {
-  height: 320px;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
-  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
-}
-.bene-track { display: flex; flex-direction: column; gap: 12px; animation: bene-slide 22s linear infinite; }
-.bene-viewport:hover .bene-track { animation-play-state: paused; }
-.bene-item {
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px 18px;
-  font-size: 15.5px; font-weight: 600;
-}
-.bene-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px rgba(var(--glow), 0.8); flex-shrink: 0; }
-@keyframes bene-slide { to { transform: translateY(-50%); } }
-
 /* ---------- MARQUEE ---------- */
 .marquee {
   overflow: hidden;
@@ -490,11 +425,6 @@ footer a:hover { color: var(--text); }
   .features { grid-template-columns: 1fr 1fr; }
   .feat-anchor { grid-column: span 2; }
 }
-@media (max-width: 900px) {
-  .row, .row.flip { grid-template-columns: 1fr; }
-  .row.flip .row-shot { order: 0; }
-  .benefits-panel { grid-template-columns: 1fr; }
-}
 @media (max-width: 640px) {
   .nav-link.hide-m { display: none; }
   .features, .steps-grid { grid-template-columns: 1fr; }
@@ -508,8 +438,6 @@ footer a:hover { color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
   .mission { min-height: auto; padding: clamp(90px, 16vh, 170px) clamp(24px, 6vw, 64px); }
   .mission-sticky { position: static; min-height: auto; }
-  .bene-track { animation: none; }
-  .bene-viewport { height: auto; -webkit-mask-image: none; mask-image: none; }
 
   .rv { opacity: 1; transform: none; transition: none; }
   .hero-icon, .hero-phones { animation: none; }

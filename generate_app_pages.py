@@ -51,7 +51,6 @@ def feat(icon, title, body):
 
 APPS = {
  'useby': dict(
-   shots=['/assets/shots/useby-1.webp','/assets/shots/useby-2.webp','/assets/shots/useby-3.webp'],
    name='UseBy', title='UseBy · Food Expiry Tracker',
    desc="UseBy tracks what's in your kitchen. Scan the barcode, snap the expiry date, and get reminded before food goes off.",
    accent='#2FB47A', accent_ink='#04170D', glow='47,180,122', icon='/assets/useby-icon.webp', icon_bg='#61686F',
@@ -82,7 +81,6 @@ APPS = {
    foot=[('/privacy/useby/','Privacy'),('/support/useby/','Support'),('/studio/','Studio'),('mailto:vitalappsltd@gmail.com','Contact')],
  ),
  'dualshot': dict(
-   shots=['/assets/shots/dualshot-1.webp','/assets/shots/dualshot-2.webp','/assets/shots/dualshot-3.webp'],
    name='DualShot', title='DualShot · One Tap, Two Videos',
    desc="DualShot records vertical (9:16) and horizontal (16:9) video at the same time, from a single take. Built for creators who post everywhere.",
    accent='#FFCB45', accent_ink='#1E1500', glow='255,203,69', icon='/assets/dualshot-icon.webp', icon_bg='#1C1C1E',
@@ -116,11 +114,11 @@ APPS = {
    name='Maxxr', title='Maxxr · AI Face Analysis & Glow-Up Plan',
    desc="Maxxr gives you an honest AI face analysis from one selfie, then builds a personalised daily glow-up routine around your weakest traits.",
    accent='#C77DFF', accent_ink='#170526', glow='199,125,255', icon='/assets/maxxr-icon.webp', icon_bg='#F4F3F5',
-   pill='Not currently on the App Store', unavailable=True,
+   pill='Live on the App Store · iOS',
    h1='Looksmaxxing,<br/><em>without the noise.</em>',
    tagline="One selfie gets you an honest AI face analysis in under a minute — jawline, symmetry, skin and more. Then Maxxr builds a daily glow-up routine around your weakest traits.",
    store='https://apps.apple.com/gb/app/maxxr-looksmax-glow-up/id6765758864',
-   meta=[('Platform','iOS'),('Released','2026'),('Status','Unavailable')],
+   meta=[('Platform','iOS'),('Released','2026'),('Price','Free')],
    mission="Most looksmaxxing advice is loud, vague, or trying to sell you something. Maxxr keeps it private, personal, and actually useful.",
    mission_accent='private|personal|useful',
    feat_eyebrow='Why Maxxr', feat_h2='An honest mirror, <em>in your pocket.</em>',
@@ -143,7 +141,6 @@ APPS = {
    foot=[('/privacy/maxxr/','Privacy'),('/support/maxxr/','Support'),('/studio/','Studio'),('mailto:vitalappsltd@gmail.com','Contact')],
  ),
  'relapsr': dict(
-   shots=['/assets/shots/relapsr-1.webp','/assets/shots/relapsr-2.webp','/assets/shots/relapsr-3.webp'],
    name='Relapsr', title='Relapsr · Break the Habit',
    desc="Relapsr — break the habit, track every clean day, and take back control. By VitalApps Ltd.",
    accent='#04B497', accent_ink='#02120E', glow='4,180,151', icon='/relapsr-logo.svg', icon_bg='#151515',
@@ -162,10 +159,7 @@ APPS = {
      feat('brain','Know your triggers',"Quick check-ins and quizzes help you understand the patterns behind the urge."),
      feat('lock','Private by design',"Your streaks, journal, and answers stay on your device. We don't sell your data."),
    ],
-   steps_h2='One day at a time.',
-   steps=[('Track your streak.',"Watch every clean day add up. A clear, motivating count of how far you've come."),
-          ('Know your triggers.',"Quick check-ins and quizzes help you understand the patterns behind the urge."),
-          ('Keep it private.',"Your streaks, journal, and answers stay on your device. We don't sell your data.")],
+   steps_h2=None, steps=None,
    marquee=['Streak tracking','Daily check-ins','Know your triggers','Private by design','No data sold','One day at a time'],
    cta_h2='Every clean day <em>counts.</em>',
    cta_p="Free on iOS. Your streaks, journal, and answers stay on your device.",
@@ -173,7 +167,6 @@ APPS = {
    foot=[('/privacy/relapsr/','Privacy'),('/terms/relapsr/','Terms'),('/support/relapsr/','Support'),('mailto:vitalappsltd@gmail.com','Contact')],
  ),
  'swipeclean': dict(
-   shots=['/assets/shots/swipeclean-1.webp','/assets/shots/swipeclean-2.webp','/assets/shots/swipeclean-3.webp'],
    name='SwipeClean', title='SwipeClean · Photo Cleaner',
    desc="Swipe left to delete, right to keep. Clean your camera roll in minutes.",
    accent='#FD297B', accent_ink='#20030E', glow='253,41,123', icon='/assets/swipeclean-icon.webp', icon_bg='#FD297B',
@@ -191,10 +184,7 @@ APPS = {
      feat('disk','See the space you free',"Watch the gigabytes add up as you go. Clean by month, album, screenshots, or your whole library."),
      feat('lock','Nothing leaves your phone',"SwipeClean never uploads your photos. Deletions go to Recently Deleted for 30 days, so nothing is lost instantly."),
    ],
-   steps_h2='Clean in minutes.',
-   steps=[('Swipe to decide.',"One photo at a time. Left to bin it, right to keep it — no endless scrolling."),
-          ('Watch the space add up.',"Clean by month, album, screenshots, or your whole library and see the gigabytes you free."),
-          ('Nothing is lost instantly.',"Deletions go to Recently Deleted for 30 days, and nothing ever leaves your phone.")],
+   steps_h2=None, steps=None,
    marquee=['Swipe left to delete','Swipe right to keep','Clean by month','Clean by album','Free up gigabytes','Nothing uploaded','30-day safety net'],
    cta_h2='Your camera roll, <em>finally sorted.</em>',
    cta_p="SwipeClean is free to try. SwipeClean Pro unlocks unlimited swiping.",
@@ -268,8 +258,6 @@ FAVICON = "data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.or
 
 def store_buttons(a, ghost_href='#features'):
     android = 'Android' in dict(a['meta']).get('Platform', '')
-    if a.get('unavailable'):
-        return badge('#', 'Currently unavailable on the', 'App Store', APPLE_B, disabled=True)
     if a.get('coming'):
         out = badge('#', 'Coming soon to the', 'App Store', APPLE_B, disabled=True)
         if android:
@@ -287,11 +275,9 @@ def hero_art(a):
             % (a['icon'], H.escape(a['name'])))
 
 def cta_button(a):
-    if a.get('unavailable'):
-        return badge('#', 'Currently unavailable on the', 'App Store', APPLE_B, disabled=True)
     if a.get('coming'):
-        return badge('#', 'Coming soon to the', 'App Store', APPLE_B, disabled=True)
-    return badge(a['store'], 'Download on the', 'App Store', APPLE_B)
+        return '<span class="btn btn-accent" aria-disabled="true">%s&nbsp;Coming soon</span>' % APPLE
+    return '<a href="%s" class="btn btn-accent" target="_blank" rel="noopener">%s&nbsp;Download on App Store <span class="chev">›</span></a>' % (a['store'], APPLE)
 
 def render(slug, a):
     feats = '\n'.join(
@@ -301,19 +287,7 @@ def render(slug, a):
         for i, f in enumerate(a['features']))
 
     steps_html = ''
-    if a.get('steps') and a.get('shots'):
-        rows = '\n'.join(
-            '<div class="row%s">'
-            '<div class="row-shot rv"><img src="%s" alt="%s — %s" loading="lazy" width="640" height="1390" /></div>'
-            '<div class="row-copy rv rv-d1"><p class="step-num">0%d</p><h3>%s</h3><p>%s</p></div>'
-            '</div>'
-            % (' flip' if i % 2 else '', a['shots'][i % len(a['shots'])], H.escape(a['name']),
-               H.escape(t, quote=False), i + 1, H.escape(t, quote=False), H.escape(b, quote=False))
-            for i, (t, b) in enumerate(a['steps']))
-        steps_html = ('<section class="steps-band" id="how"><div class="section">'
-                      '<p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">%s</h2>'
-                      '<div class="rows">%s</div></div></section>') % (H.escape(a['steps_h2'], quote=False), rows)
-    elif a.get('steps'):
+    if a.get('steps'):
         rows = '\n'.join(
             '<div class="step rv rv-d%d"><p class="step-num">0%d</p><h3>%s</h3><p>%s</p></div>'
             % (i + 1, i + 1, H.escape(t, quote=False), H.escape(b, quote=False))
@@ -322,12 +296,8 @@ def render(slug, a):
                       '<p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">%s</h2>'
                       '<div class="steps-grid">%s</div></div></section>') % (H.escape(a['steps_h2'], quote=False), rows)
 
-    items = ''.join('<div class="bene-item"><span class="dot"></span>%s</div>' % H.escape(w, quote=False) for w in a['marquee'])
-    marquee = ('<section class="benefits"><div class="benefits-panel">'
-               '<div class="benefits-copy rv"><h2>Built to be <em>%s</em></h2>'
-               '<p>%s</p><div class="hero-cta">%s</div></div>'
-               '<div class="bene-viewport" aria-hidden="true"><div class="bene-track">%s%s</div></div>'
-               '</div></section>') % ('loved.', H.escape(a['feat_lead'], quote=False), cta_button(a), items, items)
+    pills = ''.join('<span class="mq-pill"><span class="dot"></span>%s</span>' % H.escape(w, quote=False) for w in a['marquee'])
+    marquee = '<div class="marquee" aria-hidden="true"><div class="marquee-track">%s</div></div>' % (pills + pills)
 
     meta = ''.join('<div>%s<strong>%s</strong></div>' % (H.escape(k), H.escape(v)) for k, v in a['meta'])
     foot = ''.join('<a href="%s">%s</a>' % (h_, t) for h_, t in a['foot'])
@@ -364,7 +334,7 @@ def render(slug, a):
     <a href="/" class="nav-link hide-m">Apps</a>
     <a href="/studio/" class="nav-link hide-m">Studio</a>
     <a href="/" class="nav-link">← All apps</a>
-    {'<span class="nav-cta" aria-disabled="true">Coming soon</span>' if a.get('coming') else ('<span class="nav-cta" aria-disabled="true">Unavailable</span>' if a.get('unavailable') else '<a href="%s" class="nav-cta" target="_blank" rel="noopener">Download</a>' % a['store'])}
+    {'<span class="nav-cta" aria-disabled="true">Coming soon</span>' if a.get('coming') else '<a href="%s" class="nav-cta" target="_blank" rel="noopener">Download</a>' % a['store']}
   </div>
 </nav>
 

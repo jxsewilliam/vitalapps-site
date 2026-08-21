@@ -135,6 +135,7 @@ APPS = {
    desc="Relapsr — break the habit, track every clean day, and take back control. By VitalApps Ltd.",
    accent='#04B497', accent_ink='#02120E', glow='4,180,151', icon='/relapsr-logo.svg', icon_bg='#151515',
    pill='Live on the App Store · iOS',
+   hero_art='/assets/relapsr-phones.webp',
    h1='Break the habit.<br/><em>Take back control.</em>',
    tagline="Track every clean day, understand your triggers, and rebuild better habits — one day at a time.",
    store='https://apps.apple.com/gb/app/relapsr-quit-adult-content/id6779668191',
@@ -252,6 +253,15 @@ def store_buttons(a, ghost_href='#features'):
     return ('<a href="%s" class="btn btn-accent" target="_blank" rel="noopener">%s&nbsp;Download on App Store <span class="chev">›</span></a>'
             '<a href="%s" class="link-quiet">Learn more <span class="chev">›</span></a>') % (a['store'], APPLE, ghost_href)
 
+def hero_art(a):
+    if a.get('hero_art'):
+        return ('<div class="hero-phones-wrap rv in rv-d3">'
+                '<img class="hero-phones" src="%s" alt="%s app screens" /></div>'
+                % (a['hero_art'], H.escape(a['name'])))
+    return ('<div class="hero-icon-wrap rv in rv-d3">'
+            '<div class="hero-icon"><img src="%s" alt="%s app icon" width="512" height="512" /></div></div>'
+            % (a['icon'], H.escape(a['name'])))
+
 def cta_button(a):
     if a.get('coming'):
         return '<span class="btn btn-accent" aria-disabled="true">%s&nbsp;Coming soon</span>' % APPLE
@@ -322,9 +332,7 @@ def render(slug, a):
   <h1 class="rv in rv-d1">{a['h1']}</h1>
   <p class="hero-tagline rv in rv-d2">{H.escape(a['tagline'], quote=False)}</p>
   <div class="hero-cta rv in rv-d3">{store_buttons(a)}</div>
-  <div class="hero-icon-wrap rv in rv-d3">
-    <div class="hero-icon"><img src="{a['icon']}" alt="{H.escape(a['name'])} app icon" width="512" height="512" /></div>
-  </div>
+  {hero_art(a)}
   <div class="hero-meta rv in rv-d4">{meta}</div>
 </header>
 

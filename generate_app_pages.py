@@ -247,9 +247,11 @@ BRAND_SVG = '<svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L1
 FAVICON = "data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 20 L12 4 L16 12 L12 20 Z' fill='%232FB47A'/%3E%3Cpath d='M12 20 L16 12 L20 20 Z' fill='%230F7A4B'/%3E%3C/svg%3E"
 
 def store_buttons(a, ghost_href='#features'):
+    if a.get('steps'):
+        ghost_href = '#how'
     if a.get('coming'):
         return ('<span class="btn btn-accent" aria-disabled="true">%s&nbsp;Coming soon</span>'
-                '<a href="#features" class="link-quiet">Learn more <span class="chev">›</span></a>') % APPLE
+                '<a href="' + ghost_href + '" class="link-quiet">Learn more <span class="chev">›</span></a>') % APPLE
     return ('<a href="%s" class="btn btn-accent" target="_blank" rel="noopener">%s&nbsp;Download on App Store <span class="chev">›</span></a>'
             '<a href="%s" class="link-quiet">Learn more <span class="chev">›</span></a>') % (a['store'], APPLE, ghost_href)
 
@@ -280,7 +282,7 @@ def render(slug, a):
             '<div class="step rv rv-d%d"><p class="step-num">0%d</p><h3>%s</h3><p>%s</p></div>'
             % (i + 1, i + 1, H.escape(t, quote=False), H.escape(b, quote=False))
             for i, (t, b) in enumerate(a['steps']))
-        steps_html = ('<section class="steps-band"><div class="section">'
+        steps_html = ('<section class="steps-band" id="how"><div class="section">'
                       '<p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">%s</h2>'
                       '<div class="steps-grid">%s</div></div></section>') % (H.escape(a['steps_h2'], quote=False), rows)
 
@@ -342,14 +344,14 @@ def render(slug, a):
   </div>
 </section>
 
+{steps_html}
+
 <section class="section" id="features">
   <p class="eyebrow rv">{H.escape(a['feat_eyebrow'], quote=False)}</p>
   <h2 class="rv rv-d1">{a['feat_h2']}</h2>
   <p class="section-lead rv rv-d2">{H.escape(a['feat_lead'], quote=False)}</p>
   <div class="features">{feats}</div>
 </section>
-
-{steps_html}
 
 {marquee}
 

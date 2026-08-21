@@ -36,6 +36,16 @@ I = {
 
 APPLE = '<svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>'
 
+APPLE_B = '<svg viewBox="0 0 24 24" fill="#fff"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>'
+PLAY_B = '<svg viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17c0 .4.45.65.79.42l13.4-8.5a.5.5 0 000-.84L4.79 3.08A.5.5 0 004 3.5z" fill="#fff"/></svg>'
+
+def badge(href, small, big, svg, disabled=False):
+    if disabled:
+        return ('<span class="badge-store" aria-disabled="true">%s<span class="b-txt">'
+                '<span class="b-small">%s</span><span class="b-big">%s</span></span></span>') % (svg, small, big)
+    return ('<a class="badge-store" href="%s" target="_blank" rel="noopener">%s<span class="b-txt">'
+            '<span class="b-small">%s</span><span class="b-big">%s</span></span></a>') % (href, svg, small, big)
+
 def feat(icon, title, body):
     return {'icon': icon, 'title': title, 'body': body}
 
@@ -247,13 +257,13 @@ BRAND_SVG = '<svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L1
 FAVICON = "data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 20 L12 4 L16 12 L12 20 Z' fill='%232FB47A'/%3E%3Cpath d='M12 20 L16 12 L20 20 Z' fill='%230F7A4B'/%3E%3C/svg%3E"
 
 def store_buttons(a, ghost_href='#features'):
-    if a.get('steps'):
-        ghost_href = '#how'
+    android = 'Android' in dict(a['meta']).get('Platform', '')
     if a.get('coming'):
-        return ('<span class="btn btn-accent" aria-disabled="true">%s&nbsp;Coming soon</span>'
-                '<a href="' + ghost_href + '" class="link-quiet">Learn more <span class="chev">›</span></a>') % APPLE
-    return ('<a href="%s" class="btn btn-accent" target="_blank" rel="noopener">%s&nbsp;Download on App Store <span class="chev">›</span></a>'
-            '<a href="%s" class="link-quiet">Learn more <span class="chev">›</span></a>') % (a['store'], APPLE, ghost_href)
+        out = badge('#', 'Coming soon to the', 'App Store', APPLE_B, disabled=True)
+        if android:
+            out += badge('#', 'COMING SOON ON', 'Google Play', PLAY_B, disabled=True)
+        return out
+    return badge(a['store'], 'Download on the', 'App Store', APPLE_B)
 
 def hero_art(a):
     if a.get('hero_art'):
@@ -328,14 +338,16 @@ def render(slug, a):
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero{' hero-split' if a.get('hero_art') else ''}">
   <div class="hero-glow"></div>
-  <p class="pill rv in"><span class="dot"></span>{H.escape(a['pill'], quote=False)}</p>
-  <h1 class="rv in rv-d1">{a['h1']}</h1>
-  <p class="hero-tagline rv in rv-d2">{H.escape(a['tagline'], quote=False)}</p>
-  <div class="hero-cta rv in rv-d3">{store_buttons(a)}</div>
+  <div class="hero-copy">
+    <p class="pill rv in"><span class="dot"></span>{H.escape(a['pill'], quote=False)}</p>
+    <h1 class="rv in rv-d1">{a['h1']}</h1>
+    <p class="hero-tagline rv in rv-d2">{H.escape(a['tagline'], quote=False)}</p>
+    <div class="hero-cta rv in rv-d3">{store_buttons(a)}</div>
+    <div class="hero-meta rv in rv-d4">{meta}</div>
+  </div>
   {hero_art(a)}
-  <div class="hero-meta rv in rv-d4">{meta}</div>
 </header>
 
 <section class="mission">

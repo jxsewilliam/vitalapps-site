@@ -15,70 +15,110 @@
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>:root { --accent: #F06C84; --accent-ink: #1F050B; --glow: 240,108,132; --icon-bg: #F06C84; }</style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="/" class="brand"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg> Vital Apps</a>
-  <div class="nav-right">
-    <a href="/" class="nav-link hide-m">Apps</a>
-    <a href="/studio/" class="nav-link hide-m">Studio</a>
-    <a href="/" class="nav-link">← All apps</a>
-    <span class="nav-cta" aria-disabled="true">Coming soon</span>
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-shell">
+    <a href="/" class="brand" aria-label="Vital Apps home"><span>Vital Apps</span></a>
+    <div class="desktop-nav">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="/studio/">Studio</a>
+    </div>
+    <div class="nav-actions">
+      <span class="nav-cta" aria-disabled="true">Coming soon</span>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="/studio/">Studio</a><a href="/">All apps</a>
+    <span class="button-primary" aria-disabled="true">Coming soon</span>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="hero-glow"></div>
   <div class="hero-copy">
     <p class="pill rv in"><span class="dot"></span>Coming soon · iOS &amp; Android</p>
     <h1 class="rv in rv-d1">One tap.<br/><em>Stack it high.</em></h1>
     <p class="hero-tagline rv in rv-d2">Blocks slide across the screen. Tap to drop one. Land it square and the tower climbs — miss and it shaves down until there's nothing left to land on.</p>
-    <div class="hero-cta rv in rv-d3"><span class="badge-store" aria-disabled="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg><span class="b-txt"><span class="b-small">Coming soon to the</span><span class="b-big">App Store</span></span></span><span class="badge-store" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17c0 .4.45.65.79.42l13.4-8.5a.5.5 0 000-.84L4.79 3.08A.5.5 0 004 3.5z" fill="#fff"/></svg><span class="b-txt"><span class="b-small">COMING SOON ON</span><span class="b-big">Google Play</span></span></span></div>
-    <div class="hero-meta rv in rv-d4"><div>Platform<strong>iPhone · Android</strong></div><div>Price<strong>Free</strong></div><div>Status<strong>Coming soon</strong></div></div>
+    <div class="hero-actions rv in rv-d3"><span class="button-primary" aria-disabled="true">Coming soon</span><a class="button-secondary" href="#features">Explore features</a></div>
   </div>
-  <div class="hero-icon-wrap rv in rv-d3"><div class="hero-icon"><img src="/assets/rise-icon.webp" alt="RISE app icon" width="512" height="512" /></div></div>
+  <div class="product-stage rv in rv-d3"><div class="stage-halo"></div><div class="hero-icon"><img src="/assets/rise-icon.webp" alt="RISE app icon" width="512" height="512" /></div><div class="stage-caption"><span>Made for everyday use</span><strong>RISE</strong></div></div>
 </header>
+
+<section class="proof-strip" aria-label="Product details"><div><div class="proof-item"><span>Platform</span><strong>iPhone · Android</strong></div><div class="proof-item"><span>Price</span><strong>Free</strong></div><div class="proof-item"><span>Status</span><strong>Coming soon</strong></div></div></section>
 
 <section class="mission">
   <div class="mission-sticky">
-    <p data-accent="simple|brutal|best">RISE is simple to start and brutal to master — you'll understand it in three seconds and still be chasing your best score a month later.</p>
+    <div><span class="mission-kicker">Why RISE</span><p data-accent="simple|brutal|best">RISE is simple to start and brutal to master — you'll understand it in three seconds and still be chasing your best score a month later.</p></div>
   </div>
 </section>
 
-<section class="steps-band" id="how"><div class="section"><p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">Three rules. That's the whole game.</h2><div class="steps-grid"><div class="step rv rv-d1"><p class="step-num">01</p><h3>Tap to drop.</h3><p>A block swings back and forth above the tower. Tap and it falls exactly where it was.</p></div>
+<section class="section intro-section" id="features">
+  <p class="eyebrow rv">What it is</p>
+  <h2 class="display-heading rv rv-d1">A tower that only goes up if your <em>timing</em> does.</h2>
+  <p class="section-lead rv rv-d2">One control, one decision: when to tap.</p>
+</section>
+
+<section class="stories"><article class="story-row"><div class="story-copy rv"><p class="eyebrow">Feature 01</p><h3>One tap, nothing else</h3><p>No buttons, no joystick, no menus mid-run. Tap to drop, tap to restart. The whole game fits in one thumb.</p></div><div class="story-visual rv rv-d1"><div class="story-index">01</div><img src="/assets/rise-icon.webp" alt="RISE app icon" /></div></article>
+<article class="story-row reverse"><div class="story-copy rv"><p class="eyebrow">Feature 02</p><h3>Perfect stacks pay off</h3><p>Land a block dead centre and nothing gets sliced away. String perfects together and the tower stays full-width — that's how the big scores happen.</p></div><div class="story-visual rv rv-d1"><div class="story-index">02</div><img src="/assets/rise-icon.webp" alt="RISE app icon" /></div></article>
+<article class="story-row"><div class="story-copy rv"><p class="eyebrow">Feature 03</p><h3>Hearts to keep the run alive</h3><p>Spend a heart to carry on from where you fell instead of starting over. You begin with three, and you can always watch a short ad for one more shot.</p></div><div class="story-visual rv rv-d1"><div class="story-index">03</div><img src="/assets/rise-icon.webp" alt="RISE app icon" /></div></article>
+<article class="story-row reverse"><div class="story-copy rv"><p class="eyebrow">Feature 04</p><h3>An honest leaderboard</h3><p>Your stats track your best score with revives and your best score without one, separately. The no-revive number is the one that actually counts.</p></div><div class="story-visual rv rv-d1"><div class="story-index">04</div><img src="/assets/rise-icon.webp" alt="RISE app icon" /></div></article></section>
+
+<section class="steps-band" id="how"><div class="section section-wide"><p class="eyebrow rv">How it works</p><h2 class="display-heading rv rv-d1">Three rules. That's the whole game.</h2><div class="steps-grid"><div class="step rv rv-d1"><p class="step-num">01</p><h3>Tap to drop.</h3><p>A block swings back and forth above the tower. Tap and it falls exactly where it was.</p></div>
 <div class="step rv rv-d2"><p class="step-num">02</p><h3>Overhang gets cut.</h3><p>Anything hanging over the edge is sliced off and falls away. The next block is only as wide as what's left.</p></div>
 <div class="step rv rv-d3"><p class="step-num">03</p><h3>Miss and it’s over.</h3><p>Trim the tower down to nothing and the run ends. Spend a heart to continue, or start again and beat it properly.</p></div></div></div></section>
 
-<section class="section" id="features">
-  <p class="eyebrow rv">What it is</p>
-  <h2 class="rv rv-d1">A tower that only goes up if your <em>timing</em> does.</h2>
-  <p class="section-lead rv rv-d2">One control, one decision: when to tap.</p>
-  <div class="features"><div class="feat feat-anchor rv rv-d1"><h3>One tap, nothing else</h3><p>No buttons, no joystick, no menus mid-run. Tap to drop, tap to restart. The whole game fits in one thumb.</p></div>
-<div class="feat rv rv-d2"><h3>Perfect stacks pay off</h3><p>Land a block dead centre and nothing gets sliced away. String perfects together and the tower stays full-width — that's how the big scores happen.</p></div>
-<div class="feat rv rv-d3"><h3>Hearts to keep the run alive</h3><p>Spend a heart to carry on from where you fell instead of starting over. You begin with three, and you can always watch a short ad for one more shot.</p></div>
-<div class="feat rv rv-d1"><h3>An honest leaderboard</h3><p>Your stats track your best score with revives and your best score without one, separately. The no-revive number is the one that actually counts.</p></div>
-<div class="feat rv rv-d2"><h3>Streaks and stats</h3><p>Games played, blocks stacked, average score, and a day streak that grows every day you come back.</p></div>
-<div class="feat rv rv-d3"><h3>Remove ads for good</h3><p>One small purchase clears the ads permanently. No subscription, no timers, no energy meter — RISE never stops you from playing.</p></div></div>
+<section class="feature-library section section-wide">
+  <div class="section-heading"><div><p class="eyebrow rv">Everything included</p><h2 class="display-heading rv rv-d1">Small details. <em>Real impact.</em></h2></div><p class="section-lead rv rv-d2">Designed around one clear job, without the clutter that gets in the way.</p></div>
+  <div class="feature-grid"><article class="feature-card rv rv-d1"><span>01</span><h3>One tap, nothing else</h3><p>No buttons, no joystick, no menus mid-run. Tap to drop, tap to restart. The whole game fits in one thumb.</p></article>
+<article class="feature-card rv rv-d2"><span>02</span><h3>Perfect stacks pay off</h3><p>Land a block dead centre and nothing gets sliced away. String perfects together and the tower stays full-width — that's how the big scores happen.</p></article>
+<article class="feature-card rv rv-d3"><span>03</span><h3>Hearts to keep the run alive</h3><p>Spend a heart to carry on from where you fell instead of starting over. You begin with three, and you can always watch a short ad for one more shot.</p></article>
+<article class="feature-card rv rv-d1"><span>04</span><h3>An honest leaderboard</h3><p>Your stats track your best score with revives and your best score without one, separately. The no-revive number is the one that actually counts.</p></article>
+<article class="feature-card rv rv-d2"><span>05</span><h3>Streaks and stats</h3><p>Games played, blocks stacked, average score, and a day streak that grows every day you come back.</p></article>
+<article class="feature-card rv rv-d3"><span>06</span><h3>Remove ads for good</h3><p>One small purchase clears the ads permanently. No subscription, no timers, no energy meter — RISE never stops you from playing.</p></article></div>
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="mq-pill"><span class="dot"></span>One-tap gameplay</span><span class="mq-pill"><span class="dot"></span>Perfect stack bonus</span><span class="mq-pill"><span class="dot"></span>No-revive leaderboard</span><span class="mq-pill"><span class="dot"></span>Day streaks</span><span class="mq-pill"><span class="dot"></span>Free to play</span><span class="mq-pill"><span class="dot"></span>No energy meter</span><span class="mq-pill"><span class="dot"></span>One-tap gameplay</span><span class="mq-pill"><span class="dot"></span>Perfect stack bonus</span><span class="mq-pill"><span class="dot"></span>No-revive leaderboard</span><span class="mq-pill"><span class="dot"></span>Day streaks</span><span class="mq-pill"><span class="dot"></span>Free to play</span><span class="mq-pill"><span class="dot"></span>No energy meter</span></div></div>
 
+<section class="studio-story">
+  <div class="studio-card rv">
+    <p class="eyebrow">Independent by design</p>
+    <h2>Useful apps, built with <em>care.</em></h2>
+    <p>Vital Apps is a small independent studio focused on calm products that solve a real everyday problem.</p>
+    <a class="button-secondary" href="/studio/">Meet the studio</a>
+  </div>
+</section>
+
+<section class="faq section section-wide" id="faq">
+  <div class="faq-heading"><p class="eyebrow rv">Questions, answered</p><h2 class="display-heading rv rv-d1">The useful stuff, <em>up front.</em></h2></div>
+  <div class="faq-list"><div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>What is RISE?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>RISE is a one-tap stacking game. Time each block, keep the tower wide, and chase your best score.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How does RISE work?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>Tap to drop. A block swings back and forth above the tower. Tap and it falls exactly where it was. Overhang gets cut. Anything hanging over the edge is sliced off and falls away. The next block is only as wide as what&#x27;s left. Miss and it’s over. Trim the tower down to nothing and the run ends. Spend a heart to continue, or start again and beat it properly.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Which devices support it?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>RISE is designed for iPhone · Android.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How much does it cost?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>The current pricing is Free. Store pricing and availability can change.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How is my data handled?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>Read the full privacy details for RISE on the Vital Apps privacy page.</p><a href="/privacy/rise/">Read privacy details</a></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Where can I get help?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>Visit the RISE support page or email Vital Apps and we will help you.</p><a href="/support/rise/">Open support</a></div></div></div></div>
+</section>
+
 <section class="cta-final">
-  <div class="cta-glow"></div>
+  <div class="cta-aura"></div>
+  <p class="eyebrow rv">RISE</p>
   <h2 class="rv">How high can <em>you</em> get?</h2>
   <p class="rv rv-d1">RISE launches soon on the App Store and Google Play. Free to download, no subscriptions, no nonsense.</p>
-  <div class="hero-cta rv rv-d2"><span class="btn btn-accent" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>&nbsp;Coming soon</span></div>
+  <div class="hero-actions center rv rv-d2"><span class="button-primary" aria-disabled="true">Coming soon</span><a class="button-secondary" href="/">See every app</a></div>
 </section>
 
 
 
-<footer>
-  <span>© 2026 VitalApps Ltd</span>
+<footer class="site-footer">
+  <div class="footer-brand"><a href="/" class="brand"><span>Vital Apps</span></a><p>Independent apps for everyday life.</p></div>
   <div class="foot-links"><a href="/privacy/rise/">Privacy</a><a href="/terms/rise/">Terms</a><a href="/support/rise/">Support</a><a href="/studio/">Studio</a><a href="mailto:vitalappsltd@gmail.com">Contact</a></div>
+  <span class="copyright">© 2026 VitalApps Ltd</span>
 </footer>
 
 <script src="/assets/app.js"></script>

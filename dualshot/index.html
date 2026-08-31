@@ -15,70 +15,110 @@
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>:root { --accent: #FFCB45; --accent-ink: #1E1500; --glow: 255,203,69; --icon-bg: #1C1C1E; }</style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="/" class="brand"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg> Vital Apps</a>
-  <div class="nav-right">
-    <a href="/" class="nav-link hide-m">Apps</a>
-    <a href="/studio/" class="nav-link hide-m">Studio</a>
-    <a href="/" class="nav-link">← All apps</a>
-    <a href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" class="nav-cta" target="_blank" rel="noopener">Download</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-shell">
+    <a href="/" class="brand" aria-label="Vital Apps home"><span>Vital Apps</span></a>
+    <div class="desktop-nav">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="/studio/">Studio</a>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-cta" href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" target="_blank" rel="noopener">Download</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="/studio/">Studio</a><a href="/">All apps</a>
+    <a class="button-primary" href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" target="_blank" rel="noopener">Download</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="hero-glow"></div>
   <div class="hero-copy">
     <p class="pill rv in"><span class="dot"></span>Live on the App Store · iOS</p>
     <h1 class="rv in rv-d1">One tap.<br/><em>Two videos.</em></h1>
     <p class="hero-tagline rv in rv-d2">DualShot records vertical (9:16) and horizontal (16:9) at the exact same time, from a single take. No reshoots, no compromises.</p>
-    <div class="hero-cta rv in rv-d3"><a class="badge-store" href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg><span class="b-txt"><span class="b-small">Download on the</span><span class="b-big">App Store</span></span></a></div>
-    <div class="hero-meta rv in rv-d4"><div>Platform<strong>iOS</strong></div><div>Released<strong>2026</strong></div><div>Price<strong>£9.99 lifetime</strong></div></div>
+    <div class="hero-actions rv in rv-d3"><a class="button-primary" href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" target="_blank" rel="noopener">Download</a><a class="button-secondary" href="#features">Explore features</a></div>
   </div>
-  <div class="hero-icon-wrap rv in rv-d3"><div class="hero-icon"><img src="/assets/dualshot-icon.webp" alt="DualShot app icon" width="512" height="512" /></div></div>
+  <div class="product-stage rv in rv-d3"><div class="stage-halo"></div><div class="hero-icon"><img src="/assets/dualshot-icon.webp" alt="DualShot app icon" width="512" height="512" /></div><div class="stage-caption"><span>Made for everyday use</span><strong>DualShot</strong></div></div>
 </header>
+
+<section class="proof-strip" aria-label="Product details"><div><div class="proof-item"><span>Platform</span><strong>iOS</strong></div><div class="proof-item"><span>Released</span><strong>2026</strong></div><div class="proof-item"><span>Price</span><strong>£9.99 lifetime</strong></div></div></section>
 
 <section class="mission">
   <div class="mission-sticky">
-    <p data-accent="one|two|dualshot">Every creator knows the pain: shoot for TikTok, then re-record for YouTube. DualShot ends it — one take gives you two perfectly framed files.</p>
+    <div><span class="mission-kicker">Why DualShot</span><p data-accent="one|two|dualshot">Every creator knows the pain: shoot for TikTok, then re-record for YouTube. DualShot ends it — one take gives you two perfectly framed files.</p></div>
   </div>
 </section>
 
-<section class="steps-band" id="how"><div class="section"><p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">Open. Frame. Record.</h2><div class="steps-grid"><div class="step rv rv-d1"><p class="step-num">01</p><h3>Open DualShot.</h3><p>Both framings come up instantly — your 9:16 and 16:9 previews, side by side.</p></div>
+<section class="section intro-section" id="features">
+  <p class="eyebrow rv">Why DualShot</p>
+  <h2 class="display-heading rv rv-d1">Every format, <em>in one take.</em></h2>
+  <p class="section-lead rv rv-d2">Two perfectly framed files, saved straight to your Photo Library.</p>
+</section>
+
+<section class="stories"><article class="story-row"><div class="story-copy rv"><p class="eyebrow">Feature 01</p><h3>Dual recording</h3><p>Portrait and landscape captured simultaneously — two separate, synced files.</p></div><div class="story-visual rv rv-d1"><div class="story-index">01</div><img src="/assets/dualshot-icon.webp" alt="DualShot app icon" /></div></article>
+<article class="story-row reverse"><div class="story-copy rv"><p class="eyebrow">Feature 02</p><h3>Live dual preview</h3><p>See both framings as you shoot — landscape sits picture-in-picture beside your portrait view.</p></div><div class="story-visual rv rv-d1"><div class="story-index">02</div><img src="/assets/dualshot-icon.webp" alt="DualShot app icon" /></div></article>
+<article class="story-row"><div class="story-copy rv"><p class="eyebrow">Feature 03</p><h3>Dual photo mode</h3><p>Not just video. One shutter tap saves both a 9:16 and a 16:9 photo.</p></div><div class="story-visual rv rv-d1"><div class="story-index">03</div><img src="/assets/dualshot-icon.webp" alt="DualShot app icon" /></div></article>
+<article class="story-row reverse"><div class="story-copy rv"><p class="eyebrow">Feature 04</p><h3>Pro controls</h3><p>AE/AF lock, tap-to-focus, pinch-to-zoom, 1–3× lenses, exposure slider, grid and timers.</p></div><div class="story-visual rv rv-d1"><div class="story-index">04</div><img src="/assets/dualshot-icon.webp" alt="DualShot app icon" /></div></article></section>
+
+<section class="steps-band" id="how"><div class="section section-wide"><p class="eyebrow rv">How it works</p><h2 class="display-heading rv rv-d1">Open. Frame. Record.</h2><div class="steps-grid"><div class="step rv rv-d1"><p class="step-num">01</p><h3>Open DualShot.</h3><p>Both framings come up instantly — your 9:16 and 16:9 previews, side by side.</p></div>
 <div class="step rv rv-d2"><p class="step-num">02</p><h3>Frame the shot.</h3><p>Lock focus, set your zoom, check both previews. Your music keeps playing until you hit record.</p></div>
 <div class="step rv rv-d3"><p class="step-num">03</p><h3>Hit record.</h3><p>One take, two perfectly framed files in your Photo Library. Post everywhere.</p></div></div></div></section>
 
-<section class="section" id="features">
-  <p class="eyebrow rv">Why DualShot</p>
-  <h2 class="rv rv-d1">Every format, <em>in one take.</em></h2>
-  <p class="section-lead rv rv-d2">Two perfectly framed files, saved straight to your Photo Library.</p>
-  <div class="features"><div class="feat feat-anchor rv rv-d1"><h3>Dual recording</h3><p>Portrait and landscape captured simultaneously — two separate, synced files.</p></div>
-<div class="feat rv rv-d2"><h3>Live dual preview</h3><p>See both framings as you shoot — landscape sits picture-in-picture beside your portrait view.</p></div>
-<div class="feat rv rv-d3"><h3>Dual photo mode</h3><p>Not just video. One shutter tap saves both a 9:16 and a 16:9 photo.</p></div>
-<div class="feat rv rv-d1"><h3>Pro controls</h3><p>AE/AF lock, tap-to-focus, pinch-to-zoom, 1–3× lenses, exposure slider, grid and timers.</p></div>
-<div class="feat rv rv-d2"><h3>4K, your way</h3><p>4K or 1080p at 24, 30 or 60 fps. Export as MOV or MP4, saved locally to Photos.</p></div>
-<div class="feat rv rv-d3"><h3>Pay once, keep forever</h3><p>£9.99 lifetime. No subscriptions, no nagging. Yours to keep.</p></div></div>
+<section class="feature-library section section-wide">
+  <div class="section-heading"><div><p class="eyebrow rv">Everything included</p><h2 class="display-heading rv rv-d1">Small details. <em>Real impact.</em></h2></div><p class="section-lead rv rv-d2">Designed around one clear job, without the clutter that gets in the way.</p></div>
+  <div class="feature-grid"><article class="feature-card rv rv-d1"><span>01</span><h3>Dual recording</h3><p>Portrait and landscape captured simultaneously — two separate, synced files.</p></article>
+<article class="feature-card rv rv-d2"><span>02</span><h3>Live dual preview</h3><p>See both framings as you shoot — landscape sits picture-in-picture beside your portrait view.</p></article>
+<article class="feature-card rv rv-d3"><span>03</span><h3>Dual photo mode</h3><p>Not just video. One shutter tap saves both a 9:16 and a 16:9 photo.</p></article>
+<article class="feature-card rv rv-d1"><span>04</span><h3>Pro controls</h3><p>AE/AF lock, tap-to-focus, pinch-to-zoom, 1–3× lenses, exposure slider, grid and timers.</p></article>
+<article class="feature-card rv rv-d2"><span>05</span><h3>4K, your way</h3><p>4K or 1080p at 24, 30 or 60 fps. Export as MOV or MP4, saved locally to Photos.</p></article>
+<article class="feature-card rv rv-d3"><span>06</span><h3>Pay once, keep forever</h3><p>£9.99 lifetime. No subscriptions, no nagging. Yours to keep.</p></article></div>
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="mq-pill"><span class="dot"></span>9:16 + 16:9 at once</span><span class="mq-pill"><span class="dot"></span>Two synced files</span><span class="mq-pill"><span class="dot"></span>4K at 60 fps</span><span class="mq-pill"><span class="dot"></span>Dual photo mode</span><span class="mq-pill"><span class="dot"></span>AE/AF lock</span><span class="mq-pill"><span class="dot"></span>MOV or MP4</span><span class="mq-pill"><span class="dot"></span>No subscriptions</span><span class="mq-pill"><span class="dot"></span>9:16 + 16:9 at once</span><span class="mq-pill"><span class="dot"></span>Two synced files</span><span class="mq-pill"><span class="dot"></span>4K at 60 fps</span><span class="mq-pill"><span class="dot"></span>Dual photo mode</span><span class="mq-pill"><span class="dot"></span>AE/AF lock</span><span class="mq-pill"><span class="dot"></span>MOV or MP4</span><span class="mq-pill"><span class="dot"></span>No subscriptions</span></div></div>
 
+<section class="studio-story">
+  <div class="studio-card rv">
+    <p class="eyebrow">Independent by design</p>
+    <h2>Useful apps, built with <em>care.</em></h2>
+    <p>Vital Apps is a small independent studio focused on calm products that solve a real everyday problem.</p>
+    <a class="button-secondary" href="/studio/">Meet the studio</a>
+  </div>
+</section>
+
+<section class="faq section section-wide" id="faq">
+  <div class="faq-heading"><p class="eyebrow rv">Questions, answered</p><h2 class="display-heading rv rv-d1">The useful stuff, <em>up front.</em></h2></div>
+  <div class="faq-list"><div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>What is DualShot?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>DualShot records vertical (9:16) and horizontal (16:9) video at the same time, from a single take. Built for creators who post everywhere.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How does DualShot work?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>Open DualShot. Both framings come up instantly — your 9:16 and 16:9 previews, side by side. Frame the shot. Lock focus, set your zoom, check both previews. Your music keeps playing until you hit record. Hit record. One take, two perfectly framed files in your Photo Library. Post everywhere.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Which devices support it?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>DualShot is designed for iOS.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How much does it cost?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>The current pricing is £9.99 lifetime. Store pricing and availability can change.</p></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How is my data handled?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>Read the full privacy details for DualShot on the Vital Apps privacy page.</p><a href="/privacy/dualshot/">Read privacy details</a></div></div></div>
+<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Where can I get help?</span><span class="faq-toggle" aria-hidden="true"></span></button></h3><div class="faq-answer" hidden><div><p>Visit the DualShot support page or email Vital Apps and we will help you.</p><a href="/support/dualshot/">Open support</a></div></div></div></div>
+</section>
+
 <section class="cta-final">
-  <div class="cta-glow"></div>
+  <div class="cta-aura"></div>
+  <p class="eyebrow rv">DualShot</p>
   <h2 class="rv">Shoot once. Post <em>everywhere.</em></h2>
   <p class="rv rv-d1">One purchase. Lifetime access. No subscriptions, no ads, no nonsense.</p>
-  <div class="hero-cta rv rv-d2"><a href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" class="btn btn-accent" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.8 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.46 4.9c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>&nbsp;Download on App Store <span class="chev">›</span></a></div>
+  <div class="hero-actions center rv rv-d2"><a class="button-primary" href="https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242" target="_blank" rel="noopener">Download</a><a class="button-secondary" href="/">See every app</a></div>
 </section>
 
 
 
-<footer>
-  <span>© 2026 VitalApps Ltd</span>
+<footer class="site-footer">
+  <div class="footer-brand"><a href="/" class="brand"><span>Vital Apps</span></a><p>Independent apps for everyday life.</p></div>
   <div class="foot-links"><a href="/privacy/dualshot/">Privacy</a><a href="/support/dualshot/">Support</a><a href="/studio/">Studio</a><a href="mailto:vitalappsltd@gmail.com">Contact</a></div>
+  <span class="copyright">© 2026 VitalApps Ltd</span>
 </footer>
 
 <script src="/assets/app.js"></script>

@@ -266,24 +266,72 @@ def store_buttons(a, ghost_href='#features'):
     return badge(a['store'], 'Download on the', 'App Store', APPLE_B)
 
 def hero_art(a):
+    """Use only Vital's real product artwork; the surrounding stage is presentational."""
     if a.get('hero_art'):
-        return ('<div class="hero-phones-wrap rv in rv-d3">'
-                '<img class="hero-phones" src="%s" alt="%s app screens" /></div>'
-                % (a['hero_art'], H.escape(a['name'])))
-    return ('<div class="hero-icon-wrap rv in rv-d3">'
-            '<div class="hero-icon"><img src="%s" alt="%s app icon" width="512" height="512" /></div></div>'
-            % (a['icon'], H.escape(a['name'])))
+        return ('<div class="product-stage product-stage-phones rv in rv-d3">'
+                '<div class="stage-halo"></div>'
+                '<img class="hero-phones" src="%s" alt="%s app screens" />'
+                '<div class="stage-caption"><span>Built by Vital Apps</span><strong>%s</strong></div></div>'
+                % (a['hero_art'], H.escape(a['name']), H.escape(a['name'])))
+    return ('<div class="product-stage rv in rv-d3">'
+            '<div class="stage-halo"></div>'
+            '<div class="hero-icon"><img src="%s" alt="%s app icon" width="512" height="512" /></div>'
+            '<div class="stage-caption"><span>Made for everyday use</span><strong>%s</strong></div></div>'
+            % (a['icon'], H.escape(a['name']), H.escape(a['name'])))
 
 def cta_button(a):
     if a.get('coming'):
         return '<span class="btn btn-accent" aria-disabled="true">%s&nbsp;Coming soon</span>' % APPLE
     return '<a href="%s" class="btn btn-accent" target="_blank" rel="noopener">%s&nbsp;Download on App Store <span class="chev">›</span></a>' % (a['store'], APPLE)
 
+def primary_cta(a, class_name='button-primary'):
+    if a.get('coming'):
+        return '<span class="%s" aria-disabled="true">Coming soon</span>' % class_name
+    return '<a class="%s" href="%s" target="_blank" rel="noopener">Download</a>' % (class_name, a['store'])
+
+def faq_items(slug, a):
+    meta = dict(a['meta'])
+    how = a['feat_lead']
+    if a.get('steps'):
+        how = ' '.join('%s %s' % (title, body) for title, body in a['steps'])
+    privacy = ('Read the full privacy details for %s on the Vital Apps privacy page.' % a['name'])
+    for feature in a['features']:
+        if 'private' in feature['title'].lower() or 'phone' in feature['title'].lower():
+            privacy = feature['body']
+            break
+    items = [
+        ('What is %s?' % a['name'], a['desc']),
+        ('How does %s work?' % a['name'], how),
+        ('Which devices support it?', '%s is designed for %s.' % (a['name'], meta.get('Platform', 'the platforms listed above'))),
+        ('How much does it cost?', 'The current pricing is %s. Store pricing and availability can change.' % meta.get('Price', 'shown on the store page')),
+        ('How is my data handled?', privacy),
+        ('Where can I get help?', 'Visit the %s support page or email Vital Apps and we will help you.' % a['name']),
+    ]
+    return '\n'.join(
+        '<div class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false">'
+        '<span>%s</span><span class="faq-toggle" aria-hidden="true"></span></button></h3>'
+        '<div class="faq-answer" hidden><div><p>%s</p>%s</div></div></div>'
+        % (H.escape(q), H.escape(answer),
+           ('<a href="/privacy/%s/">Read privacy details</a>' % slug) if q.startswith('How is') else
+           ('<a href="/support/%s/">Open support</a>' % slug) if q.startswith('Where can') else '')
+        for q, answer in items
+    )
+
 def render(slug, a):
+    how_href = '#how' if a.get('steps') else '#features'
+    stories = '\n'.join(
+        '<article class="story-row%s">'
+        '<div class="story-copy rv"><p class="eyebrow">Feature %02d</p><h3>%s</h3><p>%s</p></div>'
+        '<div class="story-visual rv rv-d1"><div class="story-index">%02d</div>'
+        '<img src="%s" alt="%s app icon" /></div></article>'
+        % (' reverse' if i % 2 else '', i + 1,
+           H.escape(f['title'], quote=False), H.escape(f['body'], quote=False), i + 1,
+           a['icon'], H.escape(a['name']))
+        for i, f in enumerate(a['features'][:4]))
+
     feats = '\n'.join(
-        '<div class="feat%s rv rv-d%d"><h3>%s</h3><p>%s</p></div>'
-        % (' feat-anchor' if i == 0 else '', (i % 3) + 1,
-           H.escape(f['title'], quote=False), H.escape(f['body'], quote=False))
+        '<article class="feature-card rv rv-d%d"><span>%02d</span><h3>%s</h3><p>%s</p></article>'
+        % ((i % 3) + 1, i + 1, H.escape(f['title'], quote=False), H.escape(f['body'], quote=False))
         for i, f in enumerate(a['features']))
 
     steps_html = ''
@@ -292,14 +340,14 @@ def render(slug, a):
             '<div class="step rv rv-d%d"><p class="step-num">0%d</p><h3>%s</h3><p>%s</p></div>'
             % (i + 1, i + 1, H.escape(t, quote=False), H.escape(b, quote=False))
             for i, (t, b) in enumerate(a['steps']))
-        steps_html = ('<section class="steps-band" id="how"><div class="section">'
-                      '<p class="eyebrow rv">How it works</p><h2 class="rv rv-d1">%s</h2>'
+        steps_html = ('<section class="steps-band" id="how"><div class="section section-wide">'
+                      '<p class="eyebrow rv">How it works</p><h2 class="display-heading rv rv-d1">%s</h2>'
                       '<div class="steps-grid">%s</div></div></section>') % (H.escape(a['steps_h2'], quote=False), rows)
 
     pills = ''.join('<span class="mq-pill"><span class="dot"></span>%s</span>' % H.escape(w, quote=False) for w in a['marquee'])
     marquee = '<div class="marquee" aria-hidden="true"><div class="marquee-track">%s</div></div>' % (pills + pills)
 
-    meta = ''.join('<div>%s<strong>%s</strong></div>' % (H.escape(k), H.escape(v)) for k, v in a['meta'])
+    meta = ''.join('<div class="proof-item"><span>%s</span><strong>%s</strong></div>' % (H.escape(k), H.escape(v)) for k, v in a['meta'])
     foot = ''.join('<a href="%s">%s</a>' % (h_, t) for h_, t in a['foot'])
     note = ('<p class="note">%s</p>' % H.escape(a['note'], quote=False)) if a.get('note') else ''
     og_image = ('https://vitalapps.co.uk' + a['icon']) if a['icon'].startswith('/assets/') else ''
@@ -322,63 +370,95 @@ def render(slug, a):
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>:root {{ --accent: {a['accent']}; --accent-ink: {a['accent_ink']}; --glow: {a['glow']}; --icon-bg: {a['icon_bg']}; }}</style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="/" class="brand">{BRAND_SVG} Vital Apps</a>
-  <div class="nav-right">
-    <a href="/" class="nav-link hide-m">Apps</a>
-    <a href="/studio/" class="nav-link hide-m">Studio</a>
-    <a href="/" class="nav-link">← All apps</a>
-    {'<span class="nav-cta" aria-disabled="true">Coming soon</span>' if a.get('coming') else '<a href="%s" class="nav-cta" target="_blank" rel="noopener">Download</a>' % a['store']}
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-shell">
+    <a href="/" class="brand" aria-label="Vital Apps home"><span>Vital Apps</span></a>
+    <div class="desktop-nav">
+      <a href="#features">Features</a>
+      <a href="{how_href}">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="/studio/">Studio</a>
+    </div>
+    <div class="nav-actions">
+      {primary_cta(a, 'nav-cta')}
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#features">Features</a><a href="{how_href}">How it works</a><a href="#faq">FAQ</a><a href="/studio/">Studio</a><a href="/">All apps</a>
+    {primary_cta(a, 'button-primary')}
   </div>
 </nav>
 
-<header class="hero{' hero-split' if a.get('hero_art') else ''}">
-  <div class="hero-glow"></div>
+<header class="hero">
   <div class="hero-copy">
     <p class="pill rv in"><span class="dot"></span>{H.escape(a['pill'], quote=False)}</p>
     <h1 class="rv in rv-d1">{a['h1']}</h1>
     <p class="hero-tagline rv in rv-d2">{H.escape(a['tagline'], quote=False)}</p>
-    <div class="hero-cta rv in rv-d3">{store_buttons(a)}</div>
-    <div class="hero-meta rv in rv-d4">{meta}</div>
+    <div class="hero-actions rv in rv-d3">{primary_cta(a)}<a class="button-secondary" href="#features">Explore features</a></div>
   </div>
   {hero_art(a)}
 </header>
 
+<section class="proof-strip" aria-label="Product details"><div>{meta}</div></section>
+
 <section class="mission">
   <div class="mission-sticky">
-    <p data-accent="{a['mission_accent']}">{H.escape(a['mission'], quote=False)}</p>
+    <div><span class="mission-kicker">Why {H.escape(a['name'])}</span><p data-accent="{a['mission_accent']}">{H.escape(a['mission'], quote=False)}</p></div>
   </div>
 </section>
 
+<section class="section intro-section" id="features">
+  <p class="eyebrow rv">{H.escape(a['feat_eyebrow'], quote=False)}</p>
+  <h2 class="display-heading rv rv-d1">{a['feat_h2']}</h2>
+  <p class="section-lead rv rv-d2">{H.escape(a['feat_lead'], quote=False)}</p>
+</section>
+
+<section class="stories">{stories}</section>
+
 {steps_html}
 
-<section class="section" id="features">
-  <p class="eyebrow rv">{H.escape(a['feat_eyebrow'], quote=False)}</p>
-  <h2 class="rv rv-d1">{a['feat_h2']}</h2>
-  <p class="section-lead rv rv-d2">{H.escape(a['feat_lead'], quote=False)}</p>
-  <div class="features">{feats}</div>
+<section class="feature-library section section-wide">
+  <div class="section-heading"><div><p class="eyebrow rv">Everything included</p><h2 class="display-heading rv rv-d1">Small details. <em>Real impact.</em></h2></div><p class="section-lead rv rv-d2">Designed around one clear job, without the clutter that gets in the way.</p></div>
+  <div class="feature-grid">{feats}</div>
 </section>
 
 {marquee}
 
+<section class="studio-story">
+  <div class="studio-card rv">
+    <p class="eyebrow">Independent by design</p>
+    <h2>Useful apps, built with <em>care.</em></h2>
+    <p>Vital Apps is a small independent studio focused on calm products that solve a real everyday problem.</p>
+    <a class="button-secondary" href="/studio/">Meet the studio</a>
+  </div>
+</section>
+
+<section class="faq section section-wide" id="faq">
+  <div class="faq-heading"><p class="eyebrow rv">Questions, answered</p><h2 class="display-heading rv rv-d1">The useful stuff, <em>up front.</em></h2></div>
+  <div class="faq-list">{faq_items(slug, a)}</div>
+</section>
+
 <section class="cta-final">
-  <div class="cta-glow"></div>
+  <div class="cta-aura"></div>
+  <p class="eyebrow rv">{H.escape(a['name'])}</p>
   <h2 class="rv">{a['cta_h2']}</h2>
   <p class="rv rv-d1">{H.escape(a['cta_p'], quote=False)}</p>
-  <div class="hero-cta rv rv-d2">{cta_button(a)}</div>
+  <div class="hero-actions center rv rv-d2">{primary_cta(a)}<a class="button-secondary" href="/">See every app</a></div>
 </section>
 
 {note}
 
-<footer>
-  <span>© 2026 VitalApps Ltd</span>
+<footer class="site-footer">
+  <div class="footer-brand"><a href="/" class="brand"><span>Vital Apps</span></a><p>Independent apps for everyday life.</p></div>
   <div class="foot-links">{foot}</div>
+  <span class="copyright">© 2026 VitalApps Ltd</span>
 </footer>
 
 <script src="/assets/app.js"></script>

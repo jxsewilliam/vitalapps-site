@@ -4,1418 +4,419 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Vital Apps</title>
-<meta name="description" content="A home for apps made with care." />
-<meta name="theme-color" content="#FFFFFF" />
-
+<meta name="description" content="Small, focused iPhone apps from an independent London studio." />
+<meta name="theme-color" content="#0B0B0D" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 20 L12 4 L16 12 L12 20 Z' fill='%232FB47A'/%3E%3Cpath d='M12 20 L16 12 L20 20 Z' fill='%230F7A4B'/%3E%3C/svg%3E" />
-
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Vital Apps" />
 <meta property="og:description" content="Apps built to be loved, not just downloaded." />
 <meta property="og:url" content="https://vitalapps.co.uk/" />
 <meta name="twitter:card" content="summary" />
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #EDEDEF;
-    --panel: #FFFFFF;
-    --ink: #0B0C0F;
-    --ink-soft: #62666D;
-    --ink-faint: #9AA0A8;
-    --rule: #EFEFF1;
-    --blue: #2B6BFF;
-    --green: #2FB47A;
-
-    --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg: #0B0B0D;
+    --surface: #17171B;
+    --line: rgba(255, 255, 255, 0.08);
+    --text: #F5F5F7;
+    --soft: rgba(245, 245, 247, 0.62);
+    --faint: rgba(245, 245, 247, 0.5);
+    --gold: #F5C542;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html, body { height: 100%; width: 100%; overflow: hidden; }
-  @supports (height: 100dvh) {
-    html, body { height: 100dvh; }
-  }
-
   body {
-    font-family: var(--font);
-    font-weight: 400;
-    background: #FFFFFF;
-    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #6E5A57;
+    background: radial-gradient(120% 90% at 50% 0%, #8A7470 0%, #5B4845 100%);
+    color: var(--text);
+    min-height: 100svh;
+    padding: clamp(0, 3vw, 2.5rem);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
   }
-
   a { color: inherit; text-decoration: none; }
-  button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 0.125rem solid var(--gold); outline-offset: 0.1875rem; border-radius: 0.5rem; }
 
-  /* ---------- PANEL ---------- */
-  .panel {
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    background:
-      radial-gradient(52% 44% at 50% 44%, #F4F5F6 0%, rgba(244, 245, 246, 0) 100%),
-      var(--panel);
-    border-radius: 0;
-    padding: clamp(18px, 2.6vh, 30px) clamp(28px, 4vw, 64px) clamp(24px, 3vh, 40px);
-    display: grid;
-    grid-template-rows: auto 1fr;
+  /* ---------- FRAME ---------- */
+  .frame {
     position: relative;
-    overflow: visible;
+    max-width: 90rem;
+    min-height: calc(100svh - 2 * clamp(0, 3vw, 2.5rem));
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: clamp(0, 3vw, 2rem);
+    box-shadow: 0 0 0 0.0625rem rgba(255, 255, 255, 0.35), 0 2.5rem 5.625rem -1.875rem rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
-  .panel::before {
+  .grid {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    perspective: 43.75rem;
+    overflow: hidden;
+  }
+  .grid::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    opacity: 0.028;
-    pointer-events: none;
-    z-index: 0;
+    left: -50%; right: -50%; bottom: -10%;
+    height: 80%;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.07) 0.0625rem, transparent 0.0625rem),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0.0625rem, transparent 0.0625rem);
+    background-size: 7.5rem 7.5rem;
+    transform: rotateX(62deg);
+    transform-origin: 50% 100%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 45%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 45%, #000 100%);
   }
-  .panel > * { position: relative; z-index: 1; }
+  .glow {
+    position: absolute;
+    left: 50%; bottom: 8%;
+    width: min(56.25rem, 110vw); height: 26.25rem;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(245, 197, 66, 0.2) 0%, rgba(245, 197, 66, 0.05) 40%, transparent 70%);
+    filter: blur(1.875rem);
+    pointer-events: none;
+  }
 
   /* ---------- NAV ---------- */
   .nav {
+    position: relative; z-index: 5;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 40px;
-    padding-bottom: clamp(16px, 3vh, 32px);
+    gap: 1rem;
+    padding: 1.375rem clamp(1.125rem, 3vw, 2.25rem);
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
+  .nav-left { display: flex; align-items: center; gap: 0.5rem; }
+  .tab {
+    display: inline-flex; align-items: center; gap: 0.4375rem;
+    padding: 0.5625rem 1rem;
+    border-radius: 62.4375rem;
+    font-size: 0.8125rem; font-weight: 500;
+    color: var(--soft);
+    transition: color 0.2s var(--ease), background 0.2s var(--ease);
   }
-  .brand-mark {
-    width: 22px;
-    height: 22px;
-    position: relative;
-  }
-  .brand-mark svg { width: 100%; height: 100%; }
-
-  .nav-links {
-    justify-self: end;
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    font-size: 13.5px;
-    font-weight: 400;
-    color: var(--ink-soft);
-  }
-  .nav-links a {
-    position: relative;
-    padding: 4px 0;
-    transition: color 0.25s var(--ease);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a.active { color: var(--ink); font-weight: 500; }
-  .nav-links a.active::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--green);
-  }
-
-  .nav-tools {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .icon-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #F2F2F4;
-    border: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink-soft);
-    transition: all 0.25s var(--ease);
-  }
-  .icon-btn:hover { background: #E8E8EA; color: var(--ink); }
-  .icon-btn svg { width: 14px; height: 14px; }
-
-  /* ---------- SEARCH ---------- */
+  .tab svg { width: 0.9375rem; height: 0.9375rem; }
+  .tab:hover { color: var(--text); }
+  .tab.active { background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 0.0625rem var(--line); }
   .search {
     position: relative;
-    display: flex;
-    align-items: center;
-    background: #F2F2F4;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    padding: 0 14px;
-    height: 36px;
-    width: 200px;
-    transition: all 0.3s var(--ease);
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-left: 0.375rem;
+    padding: 0 0.875rem;
+    height: 2.375rem; width: 13.75rem;
+    border-radius: 62.4375rem;
+    background: var(--surface);
+    box-shadow: inset 0 0 0 0.0625rem var(--line);
   }
-  .search:focus-within {
-    background: #fff;
-    border-color: #D4D4D8;
-    box-shadow: 0 0 0 3px rgba(47, 180, 122, 0.12);
-    width: 240px;
+  .search svg { width: 0.9375rem; height: 0.9375rem; color: var(--faint); flex-shrink: 0; }
+  .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: inherit; font-size: 0.8125rem; }
+  .search input::placeholder { color: var(--faint); }
+  .results {
+    position: absolute; top: calc(100% + 0.5rem); left: 0; right: 0;
+    background: var(--surface);
+    border-radius: 0.875rem;
+    box-shadow: 0 0 0 0.0625rem var(--line), 0 1.25rem 2.5rem -0.75rem rgba(0, 0, 0, 0.7);
+    padding: 0.375rem;
+    display: none;
   }
-  .search-icon {
-    width: 14px;
-    height: 14px;
-    color: var(--ink-soft);
-    flex-shrink: 0;
+  .results.open { display: block; }
+  .result { display: flex; align-items: center; gap: 0.625rem; padding: 0.5rem 0.625rem; border-radius: 0.625rem; font-size: 0.8125rem; font-weight: 500; }
+  .result:hover, .result.active { background: rgba(255, 255, 255, 0.06); }
+  .result img { width: 1.75rem; height: 1.75rem; border-radius: 0.4375rem; object-fit: cover; }
+  .result-empty { padding: 0.75rem; font-size: 0.78125rem; color: var(--faint); text-align: center; }
+  .logo { display: flex; justify-content: center; }
+  .logo svg { width: 2.625rem; height: 2.625rem; }
+  .nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .contact {
+    display: inline-flex; align-items: center;
+    padding: 0.5625rem 1.125rem;
+    border-radius: 62.4375rem;
+    background: var(--gold);
+    color: #1B1400;
+    font-size: 0.8125rem; font-weight: 600;
+    transition: transform 0.2s var(--ease);
   }
-  .search input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font: inherit;
-    font-size: 13px;
-    color: var(--ink);
-    padding: 0 10px;
-    min-width: 0;
-  }
-  .search input::placeholder { color: var(--ink-faint); }
+  .contact:hover { transform: translateY(-0.0625rem); }
 
-  .search-results {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0; right: 0;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow:
-      0 2px 4px rgba(15, 16, 18, 0.05),
-      0 10px 32px -6px rgba(15, 16, 18, 0.15),
-      0 0 0 1px var(--rule);
-    padding: 6px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-4px);
-    transition: all 0.2s var(--ease);
-    max-height: 320px;
-    overflow-y: auto;
-    z-index: 40;
-  }
-  .search-results.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-  .search-result {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-  .search-result:hover,
-  .search-result.active {
-    background: #F4F4F6;
-  }
-  .search-result-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .search-result-icon img { width: 100%; height: 100%; object-fit: cover; }
-  .search-result-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 0;
-    flex: 1;
-  }
-  .search-result-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.2;
-  }
-  .search-result-cat {
-    font-size: 11px;
-    color: var(--ink-faint);
-  }
-  .search-empty {
-    padding: 14px;
-    font-size: 12px;
-    color: var(--ink-faint);
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; z-index: 2;
     text-align: center;
+    padding: clamp(1.5rem, 5vh, 3.5rem) 1.5rem 0;
   }
-
-  /* ---------- STAGE ---------- */
-  .stage {
-    display: grid;
-    grid-template-rows: auto 1fr auto auto auto;
-    align-items: center;
-    justify-items: center;
-    gap: clamp(12px, 1.8vh, 22px);
-    text-align: center;
-    position: relative;
-  }
-
   h1 {
-    font-size: clamp(38px, 6.6vh, 72px);
-    font-weight: 700;
+    font-family: "Saira Stencil One", "Inter", sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.75rem, 7vw, 6rem);
     line-height: 1.02;
-    letter-spacing: -0.035em;
-    max-width: 15ch;
-    opacity: 0;
-    animation: fadeUp 1s var(--ease) 0.15s forwards;
-    margin-top: clamp(4px, 1vh, 16px);
-  }
-  h1 em {
-    font-family: "Instrument Serif", Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 1.06em;
-    letter-spacing: -0.01em;
-  }
-
-  /* ---------- FAN ---------- */
-  .fan-wrap {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: min(52vh, 44vw);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .fan {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .fan-shadow {
-    position: absolute;
-    bottom: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 62%;
-    height: 30px;
-    background: radial-gradient(ellipse, rgba(15, 16, 18, 0.28) 0%, transparent 70%);
-    filter: blur(16px);
-    z-index: 0;
-  }
-
-  .card {
-    position: absolute;
-    width: min(72vw, 320px);
-    aspect-ratio: 1 / 1;
-    border-radius: 22%;
-    container-type: inline-size;
-    overflow: hidden;
-    box-shadow:
-      0 1px 2px rgba(15, 16, 18, 0.08),
-      0 20px 40px -10px rgba(15, 16, 18, 0.28),
-      0 40px 80px -20px rgba(15, 16, 18, 0.2);
-    transition:
-      transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.35s ease-out,
-      filter 0.35s ease-out;
-    cursor: pointer;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* Carousel position states */
-  .card[data-pos="front"] {
-    transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    opacity: 1;
-    z-index: 5;
-    pointer-events: auto;
-    filter: none;
-  }
-  .card[data-pos="back-left"] {
-    transform: translate(calc(-50% - 42%), -50%) scale(0.72);
-    opacity: 0.55;
-    z-index: 3;
-    filter: blur(1px);
-  }
-  .card[data-pos="back-right"] {
-    transform: translate(calc(-50% + 42%), -50%) scale(0.72);
-    opacity: 0.55;
-    z-index: 3;
-    filter: blur(1px);
-  }
-  .card[data-pos="back-center"] {
-    transform: translate(-50%, calc(-50% - 14%)) scale(0.56) rotate(0deg);
-    opacity: 0.3;
-    z-index: 1;
-    filter: blur(2px);
-  }
-  .card[data-pos="hidden"] {
-    transform: translate(-50%, -50%) scale(0.4);
-    opacity: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .card[data-pos="front"]:hover {
-    transform: translate(-50%, -50%) scale(1.03);
-  }
-
-  .card-face {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    color: #fff;
-    overflow: hidden;
-  }
-  .card-face::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 35%, rgba(0,0,0,0.18) 100%);
-    pointer-events: none;
-  }
-
-  /* ---------- POSTER CARDS ---------- */
-  .p-useby {
-    background: #61686F;
-    padding: 0;
-  }
-  .useby-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .p-dualshot {
-    background: #1C1C1E;
-    padding: 0;
-  }
-  .dualshot-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .p-maxxr {
-    background: #F4F3F5;
-    padding: 0;
-  }
-  .maxxr-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .p-arrowflow {
-    background: #0F1117;
-    padding: 0;
-  }
-  .arrowflow-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .p-rise {
-    background: #F06C84;
-    padding: 0;
-  }
-  .rise-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .p-relapsr {
-    background: #151515;
-    padding: 0;
-  }
-  .relapsr-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-  .p-swipeclean {
-    background: linear-gradient(140deg, #FD297B 0%, #FF655B 100%);
-    padding: 0;
-  }
-  .swipeclean-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ---------- DOTS ---------- */
-  .dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp 0.8s var(--ease) 0.5s forwards;
-  }
-  .dot-btn {
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: #D8DADE;
-    padding: 0;
-    transition: all 0.35s var(--ease);
-  }
-  .dot-btn:hover { background: #B6BAC0; }
-  .dot-btn.active { width: 22px; background: var(--ink); }
-
-  /* ---------- APP INFO (below carousel) ---------- */
-  .app-info {
-    text-align: center;
-    max-width: 52ch;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    max-width: 14ch;
     margin: 0 auto;
-    transition: opacity 0.2s ease-out;
   }
-  .app-info-name {
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-  .app-info-desc {
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    font-weight: 400;
-  }
-  .app-info.switching { opacity: 0; }
-  .app-info-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    border-bottom: 1px solid transparent;
-    transition: all 0.2s var(--ease);
-  }
-  .app-info-link:hover { border-bottom-color: var(--ink); }
-  .app-info-link .arr { transition: transform 0.2s var(--ease); }
-  .app-info-link:hover .arr { transform: translateX(2px); }
-
-  /* ---------- LEGAL ---------- */
-  .legal {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-size: 11.5px;
-    font-weight: 500;
-    color: #7A7F87;
-    letter-spacing: 0.02em;
-    margin-top: 14px;
-  }
-  .legal a {
-    color: var(--ink-faint);
-    text-decoration: none;
-    transition: color 0.2s var(--ease);
-  }
-  .legal a:hover { color: var(--ink); }
-
-  /* ---------- SHEET ---------- */
-  .sheet-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 10, 14, 0.35);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s var(--ease);
-    z-index: 900;
-  }
-  .sheet-backdrop.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .sheet {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.94);
-    width: min(580px, calc(100vw - 24px));
-    max-height: 88vh;
-    background: #fff;
-    border-radius: 28px;
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.06),
-      0 30px 80px -20px rgba(0, 0, 0, 0.35);
-    transition:
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 1000;
-    overflow-y: auto;
-    padding: 16px 28px 40px;
-    -webkit-overflow-scrolling: touch;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .sheet.open {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .sheet-handle {
-    width: 36px;
-    height: 5px;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 999px;
-    margin: 0 auto 20px;
-  }
-  .sheet-close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink-soft);
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s var(--ease);
-    z-index: 2;
-  }
-  .sheet-close:hover {
-    background: rgba(0, 0, 0, 0.12);
-    color: var(--ink);
-  }
-  .sheet-close svg { width: 14px; height: 14px; }
-
-  .sheet-icon {
-    width: 96px;
-    height: 96px;
-    border-radius: 22%;
-    margin: 8px auto 18px;
-    overflow: hidden;
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.06),
-      0 8px 20px -6px rgba(0, 0, 0, 0.18);
-    background: #61686F;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .sheet-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .sheet-category {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 6px;
-  }
-  .sheet h2 {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
-    margin-bottom: 8px;
-  }
-  .sheet-tagline {
-    text-align: center;
-    font-size: 15px;
-    color: var(--ink-soft);
-    line-height: 1.45;
-    max-width: 42ch;
-    margin: 0 auto 24px;
-  }
-
-  .sheet-cta {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-  }
-  .sheet-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 13px 24px;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: all 0.25s var(--ease);
-  }
-  .sheet-btn-primary {
-    background: var(--ink);
-    color: #fff;
-  }
-  .sheet-btn-primary:hover {
-    background: #000;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.3);
-  }
-  .sheet-btn-ghost {
-    background: #F2F2F4;
-    color: var(--ink);
-  }
-  .sheet-btn-ghost:hover { background: #E6E6E9; }
-
-  .sheet-section {
-    border-top: 1px solid var(--rule);
-    padding-top: 22px;
-    margin-top: 6px;
-  }
-  .sheet-section h3 {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 12px;
-  }
-  .sheet-section p {
-    font-size: 15px;
+  .lede {
+    margin: 1.25rem auto 0;
+    max-width: 52ch;
+    font-size: clamp(0.875rem, 1.4vw, 1rem);
     line-height: 1.6;
-    color: var(--ink);
+    color: var(--soft);
   }
 
-  .sheet-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 14px;
-    margin-top: 22px;
-    padding-top: 22px;
-    border-top: 1px solid var(--rule);
+  /* ---------- FLOATING ICONS ---------- */
+  .floater {
+    position: absolute; z-index: 1;
+    width: clamp(4.875rem, 9vw, 7.25rem);
+    aspect-ratio: 1;
+    border-radius: 24%;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 3.125rem -1rem rgba(0, 0, 0, 0.75), 0 0 0 0.0625rem rgba(255, 255, 255, 0.1);
+    animation: bob 7s ease-in-out infinite;
   }
-  .sheet-meta > div {
+  .floater img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .floater.l { left: 9%; top: 34%; --r: -12deg; }
+  .floater.r { right: 9%; top: 44%; --r: 14deg; animation-delay: -3.5s; }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(var(--r)); }
+    50% { transform: translateY(-0.875rem) rotate(var(--r)); }
+  }
+
+  /* ---------- CARD FAN ---------- */
+  .fan {
+    position: relative; z-index: 3;
+    margin-top: auto;
+    padding-top: clamp(2.5rem, 6vh, 4.5rem);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    list-style: none;
+  }
+  .fan li { flex: 0 0 auto; }
+  .fan li + li { margin-left: clamp(-2.75rem, -3vw, -1.5rem); }
+  .app-card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    justify-content: space-between;
+    width: clamp(10rem, 14.5vw, 13.125rem);
+    aspect-ratio: 0.82;
+    padding: 1rem;
+    border-radius: 1.75rem 1.75rem 0 0;
+    background: var(--c);
+    color: var(--ink, #111);
+    box-shadow: -1.125rem 0 2.5rem -1.125rem rgba(0, 0, 0, 0.55);
+    transform: translateY(var(--y, 0)) rotate(var(--rot, 0deg));
+    transform-origin: 50% 100%;
+    transition: transform 0.45s var(--ease);
   }
-  .sheet-meta .k {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    font-weight: 500;
+  .app-card:hover, .app-card:focus-visible { transform: translateY(calc(var(--y, 0) - 1.375rem)) rotate(var(--rot, 0deg)); }
+  .fan li:hover, .fan li:focus-within { z-index: 20; }
+  .fan li:nth-child(1) .app-card { --y: 2.375rem; --rot: -9deg; }
+  .fan li:nth-child(2) .app-card { --y: 1.125rem; --rot: -6deg; }
+  .fan li:nth-child(3) .app-card { --y: 0.375rem; --rot: -3deg; }
+  .fan li:nth-child(4) .app-card { --y: 0; --rot: 0deg; width: clamp(12.5rem, 18vw, 16.25rem); }
+  .fan li:nth-child(5) .app-card { --y: 0.375rem; --rot: 3deg; }
+  .fan li:nth-child(6) .app-card { --y: 1.125rem; --rot: 6deg; }
+  .fan li:nth-child(7) .app-card { --y: 2.375rem; --rot: 9deg; }
+  .fan li { position: relative; }
+  .fan li:nth-child(4) { z-index: 10; }
+  .fan li:nth-child(5) { z-index: 9; }
+  .fan li:nth-child(6) { z-index: 8; }
+  .fan li:nth-child(7) { z-index: 7; }
+  .fan li:nth-child(n+5) .app-card { text-align: right; }
+  .fan li:nth-child(n+5) .badge { align-self: flex-start; }
+  .badge {
+    align-self: flex-end;
+    display: inline-flex; align-items: center; gap: 0.3125rem;
+    padding: 0.3125rem 0.625rem;
+    border-radius: 62.4375rem;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    font-size: 0.71875rem; font-weight: 600;
   }
-  .sheet-meta .v {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
+  .badge .dot { width: 0.375rem; height: 0.375rem; border-radius: 50%; background: #3DDC84; }
+  .badge.soon .dot { background: var(--gold); }
+  .card-icon {
+    width: 58%;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    border-radius: 24%;
+    overflow: hidden;
+    box-shadow: 0 1.125rem 2.125rem -0.75rem rgba(0, 0, 0, 0.5);
   }
+  .card-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
+  .card-line { font-size: 0.75rem; line-height: 1.4; opacity: 0.72; margin-top: 0.125rem; }
 
-  /* ---------- CAROUSEL BUTTONS ---------- */
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid var(--rule);
-    box-shadow:
-      0 4px 12px -2px rgba(15, 16, 18, 0.12),
-      0 1px 2px rgba(15, 16, 18, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink);
-    z-index: 30;
-    transition: all 0.25s var(--ease);
+  /* ---------- FOOTER STRIP ---------- */
+  .legal {
+    position: relative; z-index: 4;
+    display: flex; justify-content: center; gap: 1.25rem;
+    padding: 0.875rem;
+    font-size: 0.71875rem; color: var(--faint);
+    background: var(--bg);
+    border-top: 0.0625rem solid var(--line);
   }
-  .carousel-btn:hover {
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 8px 20px -4px rgba(15, 16, 18, 0.18);
-  }
-  .carousel-btn:active {
-    transform: translateY(-50%) scale(0.94);
-  }
-  .carousel-btn.prev { left: 4%; }
-  .carousel-btn.next { right: 4%; }
-  .carousel-btn svg { width: 18px; height: 18px; }
+  .legal a:hover { color: var(--text); }
 
-  /* ---------- ANIMATIONS ---------- */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
   /* ---------- RESPONSIVE ---------- */
-  /* Tablet */
-  @media (max-width: 900px) {
-    .nav { grid-template-columns: auto 1fr auto; gap: 12px; padding-bottom: 16px; }
-    .nav-links { gap: 18px; font-size: 12.5px; }
-    .panel { padding: 16px 20px 24px; }
-    h1 { font-size: clamp(30px, 6vw, 46px); }
-    .search { width: 160px; }
-    .search:focus-within { width: 200px; }
+  @media (max-width: 1080px) {
+    .search { width: 10.625rem; }
+    .fan li:nth-child(1), .fan li:nth-child(7) { display: none; }
   }
-
-  /* Phone */
-  @media (max-width: 640px) {
-    .panel {
-      padding: 14px 16px 22px;
+  @media (max-width: 760px) {
+    body { padding: 0; }
+    .nav { grid-template-columns: auto 1fr; }
+    .logo { order: -1; justify-content: flex-start; }
+    .nav-left .search, .tab.store { display: none; }
+    .nav-left { justify-content: flex-end; }
+    .nav-right { display: none; }
+    .floater { display: none; }
+    .fan {
+      justify-content: flex-start;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 2.5rem 1.25rem 0;
+      gap: 0.75rem;
     }
-    .nav {
-      grid-template-columns: auto 1fr;
-      padding-bottom: 12px;
-      gap: 10px;
-    }
-    .search { display: none; }
-    .nav-links { gap: 16px; font-size: 12.5px; justify-self: end; }
-    .h1-br { display: none; }
-
-    h1 {
-      font-size: clamp(28px, 9vw, 40px) !important;
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-    }
-
-    .stage { gap: clamp(10px, 1.5vh, 18px); }
-
-    .card {
-      width: min(78vw, 300px);
-    }
-    /* Tighter overlap on phone */
-    .card[data-pos="back-left"] {
-      transform: translate(calc(-50% - 36%), -50%) scale(0.7);
-    }
-    .card[data-pos="back-right"] {
-      transform: translate(calc(-50% + 36%), -50%) scale(0.7);
-    }
-    .card[data-pos="back-center"] {
-      transform: translate(-50%, calc(-50% - 12%)) scale(0.55);
-    }
-
-    .carousel-btn {
-      width: 36px;
-      height: 36px;
-    }
-    .carousel-btn.prev { left: 4px; }
-    .carousel-btn.next { right: 4px; }
-    .carousel-btn svg { width: 16px; height: 16px; }
-
-    .app-info-name { font-size: 16px; }
-    .app-info-desc { font-size: 13px; }
-
-    .legal {
-      gap: 12px;
-      font-size: 10.5px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .sheet {
-      width: calc(100vw - 16px);
-      max-height: 92vh;
-      padding: 14px 20px 32px;
-      border-radius: 24px;
-    }
-    .sheet h2 { font-size: 26px; }
-    .sheet-icon { width: 80px; height: 80px; }
-    .sheet-tagline { font-size: 14px; }
-    .sheet-meta { grid-template-columns: 1fr 1fr; }
+    .fan li + li { margin-left: 0; }
+    .fan li { scroll-snap-align: center; }
+    .fan li:nth-child(1), .fan li:nth-child(7) { display: block; }
+    .fan li:nth-child(n) .app-card { --y: 0; --rot: 0deg; width: 11.875rem; border-radius: 1.5rem; text-align: left; }
+    .fan li:nth-child(n) .badge { align-self: flex-end; }
   }
-
-  /* Very small phones */
-  @media (max-width: 380px) {
-    h1 { font-size: 26px !important; }
-    .card { width: 75vw; }
-    .brand { font-size: 14px; }
-    .brand-mark { width: 18px; height: 18px; }
-  }
-
-  /* Mobile landscape — short height */
-  @media (max-height: 600px) and (orientation: landscape) {
-    .panel { padding: 8px 16px 12px; }
-    h1 { font-size: clamp(20px, 4vh, 30px) !important; }
-    .card { width: min(35vw, 220px); }
-    .stage { gap: 8px; }
-    .legal { display: none; }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      transition-duration: 0.001ms !important;
-    }
-    h1, .card { opacity: 1; }
+    .floater { animation: none; transform: rotate(var(--r)); }
+    .app-card { transition: none; }
   }
 </style>
 </head>
 <body>
+<div class="frame">
+  <div class="grid" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
 
-<main class="panel">
-
-  <nav class="nav">
-    <div class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/>
-          <path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/>
-        </svg>
+  <nav class="nav" aria-label="Main">
+    <div class="nav-left">
+      <a class="tab active" href="/" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/><rect x="13" y="4" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/><rect x="4" y="13" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/><rect x="13" y="13" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+        Apps
+      </a>
+      <a class="tab store" href="/studio/">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 9l2-5h12l2 5M4 9v11h16V9M4 9h16" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        Studio
+      </a>
+      <div class="search" id="search">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="searchInput" type="search" placeholder="Search apps" autocomplete="off" aria-label="Search apps" />
+        <div class="results" id="results" role="listbox"></div>
       </div>
-      Vital Apps
     </div>
-    <ul class="nav-links">
-      <li><a href="#" class="active">Apps</a></li>
-      <li><a href="/studio/">Studio</a></li>
-      <li><a href="mailto:vitalappsltd@gmail.com">Contact</a></li>
-    </ul>
-    <div class="search" id="search">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-      <input type="text" id="searchInput" placeholder="Search apps" autocomplete="off" spellcheck="false" />
-      <div class="search-results" id="searchResults"></div>
+    <a class="logo" href="/" aria-label="Vital Apps home">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 L12 4 L16 12 L12 20 Z" fill="#2FB47A"/><path d="M12 20 L16 12 L20 20 Z" fill="#0F7A4B"/></svg>
+    </a>
+    <div class="nav-right">
+      <a class="contact" href="mailto:vitalappsltd@gmail.com">Contact</a>
     </div>
   </nav>
 
-  <section class="stage">
+  <header class="hero">
+    <h1>Apps built to be loved</h1>
+    <p class="lede">Small, focused iPhone apps from an independent London studio. Pick one below to see what it does.</p>
+  </header>
 
-    <h1>Apps built to be <em>loved,</em><br class="h1-br"/> not just downloaded.</h1>
+  <a class="floater l" href="/rise/" aria-label="RISE"><img src="assets/rise-icon.webp" alt="" width="512" height="512" /></a>
+  <a class="floater r" href="/arrowflow/" aria-label="Arrow Flow"><img src="assets/arrowflow-icon.webp" alt="" width="512" height="512" /></a>
 
-    <div class="fan-wrap">
+  <ul class="fan" id="fan"></ul>
 
-      <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="carousel-btn next" id="nextBtn" aria-label="Next">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <div class="fan">
-        <div class="fan-shadow"></div>
-
-        <!-- Card 1: UseBy -->
-        <div class="card">
-          <div class="card-face p-useby">
-            <img src="assets/useby-icon.webp" width="512" height="512" alt="UseBy" class="useby-logo" />
-          </div>
-        </div>
-
-        <!-- Card 4: DualShot -->
-        <div class="card">
-          <div class="card-face p-dualshot">
-            <img src="assets/dualshot-icon.webp" width="512" height="512" alt="DualShot" class="dualshot-logo" />
-          </div>
-        </div>
-
-        <!-- Card 3: Maxxr -->
-        <div class="card">
-          <div class="card-face p-maxxr">
-            <img src="assets/maxxr-icon.webp" width="512" height="512" alt="Maxxr" class="maxxr-logo" />
-          </div>
-        </div>
-
-
-        <!-- Card 4: Arrow Flow -->
-        <div class="card">
-          <div class="card-face p-arrowflow">
-            <img src="assets/arrowflow-icon.webp" width="720" height="720" alt="Arrow Flow" class="arrowflow-logo" />
-          </div>
-        </div>
-
-        <!-- Card 5: Relapsr -->
-        <div class="card">
-          <div class="card-face p-relapsr">
-            <img src="relapsr-logo.svg" alt="Relapsr" class="relapsr-logo" />
-          </div>
-        </div>
-
-        <!-- Card 6: SwipeClean -->
-        <div class="card">
-          <div class="card-face p-swipeclean">
-            <img src="assets/swipeclean-icon.webp" width="512" height="512" alt="SwipeClean" class="swipeclean-logo" />
-          </div>
-        </div>
-
-        <!-- Card 7: RISE -->
-        <div class="card">
-          <div class="card-face p-rise">
-            <img src="assets/rise-icon.webp" width="512" height="512" alt="RISE" class="rise-logo" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="dots" id="dots" role="tablist" aria-label="Apps"></div>
-
-    <div class="app-info" id="appInfo" aria-live="polite">
-      <h3 class="app-info-name" id="appInfoName">UseBy</h3>
-      <p class="app-info-desc" id="appInfoDesc">Scan your food, snap the expiry date, get reminded in time.</p>
-      <a class="app-info-link" id="appInfoLink" href="/useby/">View app <span class="arr">&rarr;</span></a>
-    </div>
-
-    <div class="legal">
-      <span>© 2026 VitalApps Ltd</span>
-      <a href="/privacy/">Privacy</a>
-      <a href="mailto:vitalappsltd@gmail.com">Contact</a>
-    </div>
-
-  </section>
-
-</main>
-
-<div class="sheet-backdrop" id="sheetBackdrop"></div>
-
-<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetName">
-  <div class="sheet-handle"></div>
-  <button class="sheet-close" id="sheetClose" aria-label="Close">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-  </button>
-
-  <div class="sheet-icon" id="sheetIcon"></div>
-  <p class="sheet-category" id="sheetCategory">Food & Drink</p>
-  <h2 id="sheetName">UseBy</h2>
-  <p class="sheet-tagline" id="sheetTagline">Scan it, snap it, and never let food expire again.</p>
-
-  <div class="sheet-cta" id="sheetCta">
-    <a href="#" class="sheet-btn sheet-btn-primary" id="sheetPrimary">Download</a>
-    <a href="#" class="sheet-btn sheet-btn-ghost" id="sheetSecondary">Learn more</a>
-  </div>
-
-  <div class="sheet-section">
-    <h3>About</h3>
-    <p id="sheetAbout">UseBy tracks what's in your kitchen so nothing gets forgotten. Scan the barcode, snap the expiry date, and get reminded before food goes off.</p>
-  </div>
-
-  <div class="sheet-meta">
-    <div><span class="k">Platform</span><span class="v" id="sheetPlatform">iOS</span></div>
-    <div><span class="k">Released</span><span class="v" id="sheetReleased">2025</span></div>
-    <div><span class="k">Price</span><span class="v" id="sheetPrice">Free</span></div>
-  </div>
-</aside>
+  <footer class="legal">
+    <span>© 2026 VitalApps Ltd</span>
+    <a href="/studio/">Studio</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/support/">Support</a>
+    <a href="mailto:vitalappsltd@gmail.com">Contact</a>
+  </footer>
+</div>
 
 <script>
-  const USEBY_LOGO = document.querySelector('.useby-logo')?.src || '';
-  const DUALSHOT_LOGO = document.querySelector('.dualshot-logo')?.src || '';
-  const MAXXR_LOGO = document.querySelector('.maxxr-logo')?.src || '';
-  const ARROWFLOW_LOGO = document.querySelector('.arrowflow-logo')?.src || '';
-  const RELAPSR_LOGO = document.querySelector('.relapsr-logo')?.src || '';
-  const SWIPECLEAN_LOGO = document.querySelector('.swipeclean-logo')?.src || '';
-  const RISE_LOGO = document.querySelector('.rise-logo')?.src || '';
-
-  const APPS = [
-    {
-      name: 'UseBy',
-      category: 'Food & Drink',
-      tagline: 'Scan it, snap it, and never let food expire again.',
-      shortDesc: 'Scan your food, snap the expiry date, get reminded in time.',
-      about: 'UseBy tracks what\'s in your kitchen so nothing gets forgotten. Scan the barcode, snap the expiry date, and get reminded before food goes off. No typing required — just point your camera and it handles the rest.',
-      platform: 'iOS',
-      released: '2025',
-      price: '£9.99 · pay once',
-      status: 'live',
-      pageUrl: '/useby/',
-      iconType: 'image',
-      iconSrc: USEBY_LOGO,
-      iconBg: '#61686F',
-      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/gb/app/useby-food-expiry-tracker/id6756246350' },
-      secondary: { label: 'Learn more', href: '#' }
-    },
-    {
-      name: 'DualShot',
-      category: 'Photo & Video',
-      tagline: 'One tap. Two videos. Every format covered.',
-      shortDesc: 'Record vertical and horizontal video at the same time.',
-      about: 'DualShot records vertical (9:16) and horizontal (16:9) at the exact same time, from a single take. Two perfectly framed files straight to your Photo Library — built for creators who post to TikTok, Reels, YouTube and everywhere in between.',
-      platform: 'iOS',
-      released: '2026',
-      price: '£9.99 lifetime',
-      status: 'live',
-      pageUrl: '/dualshot/',
-      iconType: 'image',
-      iconSrc: DUALSHOT_LOGO,
-      iconBg: '#1C1C1E',
-      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/gb/app/dualshot-camera-recorder/id6762485242' },
-      secondary: { label: 'Learn more', href: '#' }
-    },
-    {
-      name: 'Maxxr',
-      category: 'Lifestyle',
-      tagline: 'Get your real face score. Build a real glow-up plan.',
-      shortDesc: 'AI face analysis and a personalised glow-up routine.',
-      about: 'Maxxr gives you an honest AI face analysis from one selfie — jawline, symmetry, skin and more, scored in under a minute. Then it builds a personalised daily routine around your weakest traits. No filters, no fluff, just data.',
-      platform: 'iOS',
-      released: '2026',
-      price: 'Free',
-      status: 'live',
-      pageUrl: '/maxxr/',
-      iconType: 'image',
-      iconSrc: MAXXR_LOGO,
-      iconBg: '#F4F3F5',
-      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/gb/app/maxxr-looksmax-glow-up/id6765758864' },
-      secondary: { label: 'Learn more', href: '#' }
-    },
-    {
-      name: 'Arrow Flow',
-      category: 'Puzzle',
-      tagline: 'Follow the arrows. Escape the maze.',
-      shortDesc: 'An arrow puzzle game wrapped in colour.',
-      about: 'Arrow Flow: Escape Puzzle is a calm, colourful arrow puzzle game. Read the flow, trace the path, untangle the maze. Hundreds of hand-designed levels, hints when you\'re stuck, no ads and no nonsense. Free on iOS and Android.',
-      platform: 'iOS · Android',
-      released: '2026',
-      price: 'Free',
-      status: 'coming soon',
-      pageUrl: '/arrowflow/',
-      iconType: 'image',
-      iconSrc: ARROWFLOW_LOGO,
-      iconBg: '#0F1117',
-      primary: { label: 'Coming soon', href: '#' },
-      secondary: { label: 'Learn more', href: '#' }
-    },
-    {
-      name: 'Relapsr',
-      category: 'Health & Fitness',
-      tagline: 'Break the habit. Track every clean day.',
-      shortDesc: 'Track your streak and stay on track in recovery.',
-      about: 'Relapsr helps you quit the habit you want to leave behind. Track your streak, understand your triggers with quick check-ins, and rebuild better habits one day at a time. Your recovery data stays private, on your device.',
-      platform: 'iOS · Android',
-      released: '2026',
-      price: 'Free',
-      status: 'live',
-      pageUrl: '/relapsr/',
-      iconType: 'image',
-      iconSrc: RELAPSR_LOGO,
-      iconBg: '#151515',
-      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/gb/app/relapsr-quit-adult-content/id6779668191' },
-      secondary: { label: 'Learn more', href: '#' }
-    },
-    {
-      name: 'SwipeClean',
-      category: 'Photo & Video',
-      tagline: 'Swipe left to delete. Swipe right to keep.',
-      shortDesc: 'Clean up your camera roll one swipe at a time.',
-      about: 'SwipeClean turns cleaning your photo library into something you\'ll actually finish. Swipe left to bin a photo, right to keep it, and watch the gigabytes add up as you go. Clean by month, album or screenshots. Nothing is deleted until you confirm, and nothing ever leaves your phone.',
-      platform: 'iOS',
-      released: '2026',
-      price: 'Free · Pro subscription',
-      status: 'live',
-      pageUrl: '/swipeclean/',
-      iconType: 'image',
-      iconSrc: SWIPECLEAN_LOGO,
-      iconBg: '#FD297B',
-      primary: { label: 'Download on App Store', href: 'https://apps.apple.com/gb/app/swipeclean-photo-cleaner/id6793184550' },
-      secondary: { label: 'Learn more', href: '#' }
-    },
-    {
-      name: 'RISE',
-      category: 'Games',
-      tagline: 'Stack it high. One tap, no second chances.',
-      shortDesc: 'Time each tap and stack the tower as high as you dare.',
-      about: 'RISE is a one-tap stacking game: time each block to land it square, and the tower climbs. Miss and the block shaves down until there is nothing left to land on. Chase a perfect run, build your daily streak, and keep your best score honest with the no-revive leaderboard.',
-      platform: 'iOS · Android',
-      released: '2026',
-      price: 'Free',
-      status: 'coming soon',
-      pageUrl: '/rise/',
-      iconType: 'image',
-      iconSrc: RISE_LOGO,
-      iconBg: '#F06C84',
-      primary: { label: 'Coming soon', href: '#' },
-      secondary: { label: 'Learn more', href: '#' }
-    }
+  var APPS = [
+    { name: 'Arrow Flow', line: 'An arrow puzzle wrapped in colour.', url: '/arrowflow/', icon: 'assets/arrowflow-icon.webp', c: '#BFD3FF', soon: true },
+    { name: 'DualShot', line: 'Vertical and horizontal video at once.', url: '/dualshot/', icon: 'assets/dualshot-icon.webp', c: '#FFE08A' },
+    { name: 'SwipeClean', line: 'Clean your camera roll one swipe at a time.', url: '/swipeclean/', icon: 'assets/swipeclean-icon.webp', c: '#FFB3CD' },
+    { name: 'UseBy', line: 'Scan food, snap the date, get reminded.', url: '/useby/', icon: 'assets/useby-icon.webp', c: '#F6E7A1' },
+    { name: 'Relapsr', line: 'Track every clean day in recovery.', url: '/relapsr/', icon: 'relapsr-logo.svg', c: '#A8EBDD' },
+    { name: 'Maxxr', line: 'Face analysis and a glow up routine.', url: '/maxxr/', icon: 'assets/maxxr-icon.webp', c: '#D9C4FF' },
+    { name: 'RISE', line: 'Time each tap and stack it high.', url: '/rise/', icon: 'assets/rise-icon.webp', c: '#FFC2B0', soon: true }
   ];
 
-  const cards = document.querySelectorAll('.card');
-  const total = cards.length;
-  let active = 0;
-
-  const appInfo = document.getElementById('appInfo');
-  const appInfoName = document.getElementById('appInfoName');
-  const appInfoDesc = document.getElementById('appInfoDesc');
-
-  const sheet = document.getElementById('sheet');
-  const backdrop = document.getElementById('sheetBackdrop');
-  const sheetIcon = document.getElementById('sheetIcon');
-  const sheetCategory = document.getElementById('sheetCategory');
-  const sheetName = document.getElementById('sheetName');
-  const sheetTagline = document.getElementById('sheetTagline');
-  const sheetAbout = document.getElementById('sheetAbout');
-  const sheetPlatform = document.getElementById('sheetPlatform');
-  const sheetReleased = document.getElementById('sheetReleased');
-  const sheetPrice = document.getElementById('sheetPrice');
-  const sheetPrimary = document.getElementById('sheetPrimary');
-  const sheetSecondary = document.getElementById('sheetSecondary');
-
-  function positionFor(offset) {
-    if (offset === 0) return 'front';
-    if (offset === 1) return 'back-right';
-    if (offset === total - 1) return 'back-left';
-    if (offset === Math.floor(total / 2)) return 'back-center';
-    return 'hidden';
-  }
-
-  const appInfoLink = document.getElementById('appInfoLink');
-  const dotsWrap = document.getElementById('dots');
-  APPS.forEach((app, i) => {
-    const b = document.createElement('button');
-    b.className = 'dot-btn';
-    b.setAttribute('aria-label', app.name);
-    b.addEventListener('click', () => { active = i; update(); });
-    dotsWrap.appendChild(b);
+  var fan = document.getElementById('fan');
+  APPS.forEach(function (app) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.className = 'app-card';
+    a.href = app.url;
+    a.style.setProperty('--c', app.c);
+    a.innerHTML =
+      '<span class="badge' + (app.soon ? ' soon' : '') + '"><span class="dot"></span>' + (app.soon ? 'Soon' : 'iOS') + '</span>' +
+      '<span class="card-icon"><img src="' + app.icon + '" alt="" width="512" height="512" /></span>' +
+      '<span><span class="card-name"></span><span class="card-line"></span></span>';
+    a.querySelector('.card-name').textContent = app.name;
+    a.querySelector('.card-line').textContent = app.line;
+    a.querySelector('.card-line').style.display = 'block';
+    li.appendChild(a);
+    fan.appendChild(li);
   });
-  const dots = dotsWrap.children;
 
-  function updateInfo() {
-    const app = APPS[active];
-    if (!app) return;
-    appInfo.classList.add('switching');
-    setTimeout(() => {
-      appInfoName.textContent = app.name;
-      appInfoDesc.textContent = app.shortDesc;
-      appInfoLink.href = app.pageUrl;
-      appInfo.classList.remove('switching');
-    }, 110);
-  }
-
-  function update() {
-    cards.forEach((card, i) => {
-      const offset = (i - active + total) % total;
-      card.setAttribute('data-pos', positionFor(offset));
+  var input = document.getElementById('searchInput');
+  var results = document.getElementById('results');
+  var active = 0;
+  function render() {
+    var q = input.value.trim().toLowerCase();
+    var hits = APPS.filter(function (a) { return !q || a.name.toLowerCase().indexOf(q) !== -1 || a.line.toLowerCase().indexOf(q) !== -1; });
+    results.textContent = '';
+    active = 0;
+    if (!hits.length) {
+      var empty = document.createElement('div');
+      empty.className = 'result-empty';
+      empty.textContent = 'No apps match that';
+      results.appendChild(empty);
+    }
+    hits.forEach(function (app, i) {
+      var r = document.createElement('a');
+      r.className = 'result' + (i === 0 ? ' active' : '');
+      r.href = app.url;
+      r.setAttribute('role', 'option');
+      r.innerHTML = '<img src="' + app.icon + '" alt="" /><span></span>';
+      r.querySelector('span').textContent = app.name;
+      results.appendChild(r);
     });
-    for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === active);
-    updateInfo();
+    results.classList.add('open');
   }
-
-  function next() { active = (active + 1) % total; update(); }
-  function prev() { active = (active - 1 + total) % total; update(); }
-
-  function openSheet(i) {
-    const app = APPS[i];
-    if (!app) return;
-
-    sheetCategory.textContent = app.category;
-    sheetName.textContent = app.name;
-    sheetTagline.textContent = app.tagline;
-    sheetAbout.textContent = app.about;
-    sheetPlatform.textContent = app.platform;
-    sheetReleased.textContent = app.released;
-    sheetPrice.textContent = app.price;
-
-    sheetIcon.style.background = app.iconBg;
-    if (app.iconType === 'image') {
-      sheetIcon.innerHTML = '<img src="' + app.iconSrc + '" alt="' + app.name + '" />';
-    } else if (app.iconType === 'svg') {
-      sheetIcon.innerHTML = app.iconSvg;
-    } else if (app.iconType === 'emoji') {
-      sheetIcon.innerHTML = '<span style="font-size:44px;font-weight:900;color:' + (app.iconColor || '#fff') + ';letter-spacing:-0.04em;">' + app.iconEmoji + '</span>';
-    }
-
-    sheetPrimary.textContent = app.primary.label;
-    sheetPrimary.href = app.primary.href;
-    if (app.secondary) {
-      sheetSecondary.style.display = '';
-      sheetSecondary.textContent = app.secondary.label;
-      sheetSecondary.href = app.secondary.href;
-    } else {
-      sheetSecondary.style.display = 'none';
-    }
-
-    sheet.classList.add('open');
-    backdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeSheet() {
-    sheet.classList.remove('open');
-    backdrop.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('nextBtn').addEventListener('click', next);
-  document.getElementById('prevBtn').addEventListener('click', prev);
-  document.getElementById('sheetClose').addEventListener('click', closeSheet);
-  backdrop.addEventListener('click', closeSheet);
-
-  /* ---------- SEARCH ---------- */
-  const searchInput = document.getElementById('searchInput');
-  const searchResults = document.getElementById('searchResults');
-  const searchBox = document.getElementById('search');
-  let searchHighlight = 0;
-
-  function renderSearch(query) {
-    const q = query.trim().toLowerCase();
-    const matches = q
-      ? APPS.map((a, i) => ({ app: a, idx: i })).filter(({app}) =>
-          app.name.toLowerCase().includes(q) ||
-          app.category.toLowerCase().includes(q) ||
-          app.tagline.toLowerCase().includes(q)
-        )
-      : APPS.map((a, i) => ({ app: a, idx: i }));
-
-    if (matches.length === 0) {
-      searchResults.textContent = '';
-      const empty = document.createElement('div');
-      empty.className = 'search-empty';
-      empty.textContent = 'No apps match "' + query + '"';
-      searchResults.appendChild(empty);
-      searchResults.classList.add('open');
-      return;
-    }
-
-    searchHighlight = 0;
-    searchResults.innerHTML = matches.map(({app, idx}, j) => {
-      let icon = '';
-      if (app.iconType === 'image') {
-        icon = '<img src="' + app.iconSrc + '" alt="" />';
-      } else if (app.iconType === 'emoji') {
-        icon = '<span style="font-size:15px;font-weight:700;color:' + (app.iconColor || '#fff') + ';">' + app.iconEmoji + '</span>';
-      } else {
-        icon = '<span style="font-size:15px;color:#fff;">●</span>';
-      }
-      return '<div class="search-result' + (j === 0 ? ' active' : '') + '" data-idx="' + idx + '">' +
-        '<div class="search-result-icon" style="background:' + app.iconBg + '">' + icon + '</div>' +
-        '<div class="search-result-text">' +
-          '<span class="search-result-name">' + app.name + '</span>' +
-          '<span class="search-result-cat">' + app.category + '</span>' +
-        '</div>' +
-      '</div>';
-    }).join('');
-    searchResults.classList.add('open');
-
-    searchResults.querySelectorAll('.search-result').forEach(el => {
-      el.addEventListener('click', () => {
-        const idx = parseInt(el.getAttribute('data-idx'));
-        active = idx;
-        update();
-        searchInput.value = '';
-        searchResults.classList.remove('open');
-        searchInput.blur();
-      });
-    });
-  }
-
-  searchInput.addEventListener('input', (e) => renderSearch(e.target.value));
-  searchInput.addEventListener('focus', () => renderSearch(searchInput.value));
-
-  searchInput.addEventListener('keydown', (e) => {
-    const items = searchResults.querySelectorAll('.search-result');
-    if (e.key === 'ArrowDown') {
+  input.addEventListener('input', render);
+  input.addEventListener('focus', render);
+  input.addEventListener('keydown', function (e) {
+    var items = results.querySelectorAll('.result');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
-      if (!items.length) return;
-      searchHighlight = (searchHighlight + 1) % items.length;
-      items.forEach((el, i) => el.classList.toggle('active', i === searchHighlight));
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (!items.length) return;
-      searchHighlight = (searchHighlight - 1 + items.length) % items.length;
-      items.forEach((el, i) => el.classList.toggle('active', i === searchHighlight));
+      active = (active + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length;
+      items.forEach(function (el, i) { el.classList.toggle('active', i === active); });
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      const pick = items[searchHighlight];
-      if (pick) pick.click();
+      location.href = items[active].href;
     } else if (e.key === 'Escape') {
-      searchInput.blur();
-      searchResults.classList.remove('open');
+      results.classList.remove('open');
+      input.blur();
     }
   });
-
-  document.addEventListener('click', (e) => {
-    if (!searchBox.contains(e.target)) {
-      searchResults.classList.remove('open');
-    }
+  document.addEventListener('click', function (e) {
+    if (!document.getElementById('search').contains(e.target)) results.classList.remove('open');
   });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sheet.classList.contains('open')) { closeSheet(); return; }
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') prev();
-  });
-
-  /* Touch swipe support for the carousel */
-  const fanWrap = document.querySelector('.fan-wrap');
-  if (fanWrap) {
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touching = false;
-    fanWrap.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      touching = true;
-    }, { passive: true });
-    fanWrap.addEventListener('touchend', (e) => {
-      if (!touching) return;
-      touching = false;
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      const dy = e.changedTouches[0].clientY - touchStartY;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx < 0) next(); else prev();
-      }
-    }, { passive: true });
-  }
-
-  cards.forEach((card, i) => {
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', APPS[i] ? APPS[i].name : 'App');
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
-    });
-    card.addEventListener('click', () => {
-      if (card.getAttribute('data-pos') === 'front') {
-        const app = APPS[i];
-        if (app && app.pageUrl) {
-          window.location.href = app.pageUrl;
-        } else {
-          openSheet(i);
-        }
-      } else {
-        active = i;
-        update();
-      }
-    });
-  });
-
-  update();
 </script>
-
 </body>
 </html>

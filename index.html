@@ -148,7 +148,7 @@
   h1 {
     font-family: "Allerta Stencil", "Inter", sans-serif;
     font-weight: 400;
-    font-size: clamp(2.5rem, min(6.4vw, 10.5svh), 6.5rem);
+    font-size: clamp(2.25rem, min(5.2vw, 9svh), 5.5rem);
     line-height: 1.08;
     letter-spacing: 0.01em;
     text-wrap: balance;
@@ -173,8 +173,8 @@
     animation: bob 7s ease-in-out infinite;
   }
   .floater img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .floater.l { left: 6%; top: 28%; width: min(11vw, 18svh); --r: -10deg; }
-  .floater.r { right: 7%; top: 41%; width: min(9vw, 15svh); --r: 15deg; animation-delay: -3.5s; }
+  .floater.l { left: 8%; top: 28%; width: min(9vw, 16svh); --r: -10deg; }
+  .floater.r { right: 9%; top: 41%; width: min(7.5vw, 13svh); --r: 15deg; animation-delay: -3.5s; }
   @keyframes bob {
     0%, 100% { transform: translateY(0) rotate(var(--r)); }
     50% { transform: translateY(-0.875rem) rotate(var(--r)); }
@@ -190,14 +190,14 @@
     list-style: none;
   }
   .fan li { position: relative; flex: 0 0 auto; }
-  .fan li + li { margin-left: -3vw; }
+  .fan li + li { margin-left: min(-1.5vw, -2.6svh); }
   .fan li:nth-child(3) { z-index: 5; }
   .fan li:nth-child(2), .fan li:nth-child(4) { z-index: 4; }
   .fan li:hover, .fan li:focus-within { z-index: 6; }
   .app-card {
     position: relative;
     display: block;
-    width: 19vw;
+    width: min(14.5vw, 26svh);
     aspect-ratio: 0.82;
     border-radius: 1.75rem;
     overflow: hidden;
@@ -209,13 +209,13 @@
   }
   .app-card:hover, .app-card:focus-visible { transform: translateY(calc(var(--y) - 1.25rem)) rotate(var(--rot)); }
   .fan li:nth-child(1) .app-card { --y: 13svh; --rot: -8deg; }
-  .fan li:nth-child(2) .app-card { --y: 6svh;  --rot: -5deg; width: 21vw; }
-  .fan li:nth-child(3) .app-card { --y: 0rem;  --rot: 0deg;  width: 26vw; }
-  .fan li:nth-child(4) .app-card { --y: 6svh;  --rot: 5deg;  width: 21vw; }
+  .fan li:nth-child(2) .app-card { --y: 6svh;  --rot: -5deg; width: min(16vw, 29svh); }
+  .fan li:nth-child(3) .app-card { --y: 0rem;  --rot: 0deg;  width: min(20vw, 36svh); }
+  .fan li:nth-child(4) .app-card { --y: 6svh;  --rot: 5deg;  width: min(16vw, 29svh); }
   .fan li:nth-child(5) .app-card { --y: 13svh; --rot: 8deg; }
   .card-art {
     position: absolute;
-    left: 14%; right: 14%; top: 14%;
+    left: 20%; right: 20%; top: 17%;
     aspect-ratio: 1;
   }
   .card-art img {

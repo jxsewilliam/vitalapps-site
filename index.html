@@ -29,11 +29,9 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #6E5A57;
-    background: radial-gradient(120% 90% at 50% 0%, #8A7470 0%, #5B4845 100%);
+    background: var(--bg);
     color: var(--text);
     min-height: 100svh;
-    padding: clamp(0rem, 3vw, 2.5rem);
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
@@ -42,12 +40,9 @@
   /* ---------- FRAME ---------- */
   .frame {
     position: relative;
-    max-width: 90rem;
-    height: calc(100svh - 2 * clamp(0rem, 3vw, 2.5rem));
+    height: 100svh;
     margin: 0 auto;
     background: var(--bg);
-    border-radius: clamp(0rem, 3vw, 2rem);
-    box-shadow: 0 0 0 0.0625rem rgba(255, 255, 255, 0.35), 0 2.5rem 5.625rem -1.875rem rgba(0, 0, 0, 0.6);
     overflow: hidden;
     display: flex;
     flex-direction: column;

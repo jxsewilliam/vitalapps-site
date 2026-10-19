@@ -6,7 +6,7 @@
 - Source capture: `/Users/jay/Documents/Codex/2026-08-30/you-know-my-site-vital-apps/work/source-capture/`
 - Implementation: `/Users/jay/Documents/Codex/2026-08-30/you-know-my-site-vital-apps/work/vitalapps-site/`
 - Representative implementation captures: `/Users/jay/Documents/Codex/2026-08-30/you-know-my-site-vital-apps/work/implementation-capture/`
-- Routes: `/useby/`, `/dualshot/`, `/maxxr/`, `/relapsr/`, `/swipeclean/`, `/arrowflow/`, `/rise/`
+- Routes: `/useby/`, `/dualshot/`, `/maxxr/`, `/relapsr/`, `/swipeclean/`, `/rise/`
 
 ## Viewports and dimensions
 

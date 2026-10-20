@@ -67,7 +67,7 @@
 
   <p class="eyebrow"><span class="dot"></span> Relapsr · Privacy</p>
   <h1>Relapsr Privacy Policy</h1>
-  <p class="updated">Last updated: June 2026</p>
+  <p class="updated">Last updated: October 2026</p>
 
   <h2>1. Introduction</h2>
   <p>Relapsr ("we", "our", or "us") is operated by VitalApps Ltd, a company registered in the United Kingdom. This Privacy Policy explains how we collect, use, store, and safeguard your information when you use the Relapsr mobile application.</p>
@@ -75,13 +75,15 @@
 
   <h2>2. Information We Collect</h2>
   <h3>Account Information</h3>
-  <p>If you choose to sign in or create a profile, we collect your name, username, and email address. Sign-in is handled by Google Firebase Authentication. You can use much of the app without creating an account.</p>
+  <p>You sign in with Sign in with Apple. Apple gives the app an account identifier and, if you choose to share them, your name and email address. These are kept on your device and in your own private iCloud account.</p>
   <h3>Your Recovery Data</h3>
-  <p>Streak data, quiz responses, journal entries, and your in-app preferences. This personal recovery data is stored locally on your device.</p>
+  <p>Streak data, quiz responses, check-ins, goals, and your in-app preferences. This data is stored on your device and backed up to your own private iCloud account, which we cannot access.</p>
+  <h3>Leaderboard</h3>
+  <p>The leaderboard shows your chosen username, display name, and streak to other users. To run it, an account identifier, your username, display name, and streak statistics are sent to our leaderboard server, hosted on Cloudflare.</p>
   <h3>Purchase Information</h3>
-  <p>If you subscribe, your subscription status is managed through the App Store / Google Play and RevenueCat. We never see or store your payment card details.</p>
+  <p>If you subscribe, your subscription status is managed through the App Store and RevenueCat. We never see or store your payment card details.</p>
   <h3>Device & Usage Information</h3>
-  <p>Anonymous information about your device and aggregated, non-identifying usage data, used to improve app stability and experience.</p>
+  <p>AppsFlyer measures which ads led to an install and records purchase events. Superwall records how the subscription screen is used. Both receive device and usage information from the app for these purposes.</p>
 
   <h2>3. How We Use Your Information</h2>
   <ul>
@@ -93,26 +95,28 @@
   <p>We do not use your recovery data for advertising, profiling, or AI model training.</p>
 
   <h2>4. Data Storage & Security</h2>
-  <p><strong>On your device:</strong> Your streaks, quiz answers, journal entries, and preferences are stored locally on your device in Relapsr's app storage.</p>
-  <p><strong>Account data:</strong> If you create an account, your name and email are held by Google Firebase Authentication so you can sign in across sessions.</p>
+  <p><strong>On your device and in your iCloud:</strong> Your streaks, quiz answers, check-ins, and preferences are stored in Relapsr's app storage on your device and backed up to your private iCloud account (Apple CloudKit).</p>
+  <p><strong>Leaderboard:</strong> Your leaderboard entry is held on our Cloudflare server. Entries nobody has refreshed in 30 days are removed.</p>
   <p>We apply appropriate technical and organisational safeguards. However, no method of electronic storage is 100% secure.</p>
 
   <h2>5. Third-Party Services</h2>
   <p>To run the app, we rely on a small number of trusted providers:</p>
   <ul>
-    <li><strong>Google Firebase</strong> — authentication and app infrastructure</li>
-    <li><strong>RevenueCat</strong> — subscription and purchase management</li>
-    <li><strong>App Store / Google Play Billing</strong> — payment processing</li>
+    <li><strong>Apple</strong>: Sign in with Apple, iCloud (CloudKit) backup, and App Store payments</li>
+    <li><strong>Cloudflare</strong>: hosts the leaderboard server</li>
+    <li><strong>RevenueCat</strong>: subscription and purchase management</li>
+    <li><strong>Superwall</strong>: subscription screen and its usage analytics</li>
+    <li><strong>AppsFlyer</strong>: install attribution and purchase measurement</li>
   </ul>
   <p>We do not sell, rent, or trade your personal information. Data is only shared with the providers above as needed to operate the app.</p>
 
   <h2>6. Data Retention & Deletion</h2>
   <p>Your recovery data remains on your device until you delete it. You can:</p>
   <ul>
-    <li>Delete your account and all associated data from within the app</li>
+    <li>Delete your account from within the app. This removes your data from the device, your iCloud backup, and the leaderboard. If you are offline, the app finishes removing the backup and leaderboard entry the next time it opens.</li>
     <li>Log out at any time</li>
     <li>Disable notifications</li>
-    <li>Cancel your subscription through the App Store or Google Play</li>
+    <li>Cancel your subscription in your Apple ID settings</li>
   </ul>
   <p>Uninstalling Relapsr removes all locally-stored data from your device.</p>
 

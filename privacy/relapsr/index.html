@@ -78,8 +78,6 @@
   <p>You sign in with Sign in with Apple. Apple gives the app an account identifier and, if you choose to share them, your name and email address. These are kept on your device and in your own private iCloud account.</p>
   <h3>Your Recovery Data</h3>
   <p>Streak data, quiz responses, check-ins, goals, and your in-app preferences. This data is stored on your device and backed up to your own private iCloud account, which we cannot access.</p>
-  <h3>Leaderboard</h3>
-  <p>The leaderboard shows your chosen username, display name, and streak to other users. To run it, an account identifier, your username, display name, and streak statistics are sent to our leaderboard server, hosted on Cloudflare.</p>
   <h3>Purchase Information</h3>
   <p>If you subscribe, your subscription status is managed through the App Store and RevenueCat. We never see or store your payment card details.</p>
   <h3>Device & Usage Information</h3>
@@ -96,14 +94,12 @@
 
   <h2>4. Data Storage & Security</h2>
   <p><strong>On your device and in your iCloud:</strong> Your streaks, quiz answers, check-ins, and preferences are stored in Relapsr's app storage on your device and backed up to your private iCloud account (Apple CloudKit).</p>
-  <p><strong>Leaderboard:</strong> Your leaderboard entry is held on our Cloudflare server. Entries nobody has refreshed in 30 days are removed.</p>
   <p>We apply appropriate technical and organisational safeguards. However, no method of electronic storage is 100% secure.</p>
 
   <h2>5. Third-Party Services</h2>
   <p>To run the app, we rely on a small number of trusted providers:</p>
   <ul>
     <li><strong>Apple</strong>: Sign in with Apple, iCloud (CloudKit) backup, and App Store payments</li>
-    <li><strong>Cloudflare</strong>: hosts the leaderboard server</li>
     <li><strong>RevenueCat</strong>: subscription and purchase management</li>
     <li><strong>Superwall</strong>: subscription screen and its usage analytics</li>
     <li><strong>AppsFlyer</strong>: install attribution and purchase measurement</li>
@@ -113,7 +109,7 @@
   <h2>6. Data Retention & Deletion</h2>
   <p>Your recovery data remains on your device until you delete it. You can:</p>
   <ul>
-    <li>Delete your account from within the app. This removes your data from the device, your iCloud backup, and the leaderboard. If you are offline, the app finishes removing the backup and leaderboard entry the next time it opens.</li>
+    <li>Delete your account from within the app. This removes your data from the device and your iCloud backup. If you are offline, the app finishes removing the backup the next time it opens.</li>
     <li>Log out at any time</li>
     <li>Disable notifications</li>
     <li>Cancel your subscription in your Apple ID settings</li>

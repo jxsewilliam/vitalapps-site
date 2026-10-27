@@ -191,8 +191,7 @@
   }
   .fan li { position: relative; flex: 0 0 auto; }
   .fan li + li { margin-left: min(-1.5vw, -2.6svh); }
-  .fan li:nth-child(3) { z-index: 5; }
-  .fan li:nth-child(2), .fan li:nth-child(4) { z-index: 4; }
+  .fan li:nth-child(2), .fan li:nth-child(3) { z-index: 5; }
   .fan li:hover, .fan li:focus-within { z-index: 6; }
   .app-card {
     position: relative;
@@ -208,11 +207,10 @@
     transition: transform 0.45s var(--ease);
   }
   .app-card:hover, .app-card:focus-visible { transform: translateY(calc(var(--y) - 1.25rem)) rotate(var(--rot)); }
-  .fan li:nth-child(1) .app-card { --y: 13svh; --rot: -8deg; }
-  .fan li:nth-child(2) .app-card { --y: 6svh;  --rot: -5deg; width: min(16vw, 29svh); }
-  .fan li:nth-child(3) .app-card { --y: 0rem;  --rot: 0deg;  width: min(20vw, 36svh); }
-  .fan li:nth-child(4) .app-card { --y: 6svh;  --rot: 5deg;  width: min(16vw, 29svh); }
-  .fan li:nth-child(5) .app-card { --y: 13svh; --rot: 8deg; }
+  .fan li:nth-child(1) .app-card { --y: 10svh; --rot: -7deg; width: min(16vw, 29svh); }
+  .fan li:nth-child(2) .app-card { --y: 0rem;  --rot: -2deg; width: min(19vw, 34svh); }
+  .fan li:nth-child(3) .app-card { --y: 0rem;  --rot: 2deg;  width: min(19vw, 34svh); }
+  .fan li:nth-child(4) .app-card { --y: 10svh; --rot: 7deg;  width: min(16vw, 29svh); }
   .card-art {
     position: absolute;
     left: 20%; right: 20%; top: 17%;
@@ -329,7 +327,6 @@
     { name: 'DualShot', url: '/dualshot/', icon: 'assets/dualshot-icon.webp', c: 'linear-gradient(180deg, #1C1C1E 0%, #1C1C1E 100%)' },
     { name: 'SwipeClean', url: '/swipeclean/', icon: 'assets/swipeclean-icon.webp', c: 'linear-gradient(180deg, #FE3C70 0%, #FF5E60 100%)' },
     { name: 'UseBy', url: '/useby/', icon: 'assets/useby-icon.webp', c: 'linear-gradient(180deg, #636A73 0%, #525760 100%)' },
-    { name: 'Relapsr', url: '/relapsr/', icon: 'relapsr-logo.svg', c: 'linear-gradient(180deg, #151515 0%, #151515 100%)' },
     { name: 'Maxxr', url: '/maxxr/', icon: 'assets/maxxr-icon.webp', c: 'linear-gradient(180deg, #F5F2F5 0%, #F5F2F5 100%)' }
   ];
   var SEARCH = FAN.concat([
